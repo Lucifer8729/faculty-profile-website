@@ -1,3 +1,37 @@
+.text-box {
+  display: block;
+  margin: 15%;
+  margin-left: 22%;
+  max-width: 35%;
+  /* background-color: white; */
+}
+
 .hello {
-  margin: 50px;
+  display: inline-block;
+  border-radius: 15%;
+  padding: 0.2% 2%;
+  color: #3abcff;
+  font-weight: bold;
+  font-size: 1em;
+  background-color: #ffffff;
+}
+
+.arrow-down {
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 10px solid #ffffff;
+  margin-left: 4.3%;
+  margin-top: -2px;
+}
+
+.heading {
+  margin-top: -5%;
+  color: #fff;
+}
+
+.heading h1 {
+  font-size: 3.2em;
+  margin-bottom: 0;
 }

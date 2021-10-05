@@ -17,7 +17,17 @@ const HomePage = () => {
         zIndex: "-1",
       }}
     >
-      <Box className="hello">Hello</Box>
+      <Box className="text-box">
+        <Box className="hello">Hello!</Box>
+        <Box className="arrow-down"></Box>
+        <Box className="heading">
+          <h1>I am Dr. Uma Mohan A Professor</h1>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
+            viverra neque tellus, quis viverra nulla semper vitae.
+          </p>
+        </Box>
+      </Box>
     </Box>
   );
 };

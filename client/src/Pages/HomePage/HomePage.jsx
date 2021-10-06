@@ -43,6 +43,7 @@ const HomePage = () => {
           <Button
             variant="contained"
             sx={{ mt: 2, "&: hover": { bgcolor: "#ffffff" } }}
+            href="/profilepage"
           >
             View profile
             <ArrowRightAltSharpIcon sx={{ ml: 1 }} />

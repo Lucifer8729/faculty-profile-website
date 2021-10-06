@@ -1,0 +1,7 @@
+.profile-pic-style-div {
+  position: absolute;
+  margin-top: -57%;
+  margin-left: -3%;
+  width: 50%;
+  z-index: -1;
+}

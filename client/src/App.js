@@ -9,8 +9,6 @@ import HomePage from "./Pages/HomePage/HomePage";
 import ProfilePage from "./Pages/ProfilePage/ProfilePage";
 import PublicationPage from "./Pages/PublicationPage/PublicationPage";
 
-import "./App.css";
-
 const App = () => {
   return (
     <>

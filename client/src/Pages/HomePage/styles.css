@@ -1,6 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap");
+
 .text-box {
+  font-family: "Ubuntu", sans-serif;
   display: block;
-  margin: 15%;
+  margin: 12%;
   margin-left: 22%;
   max-width: 35%;
   /* background-color: white; */
@@ -8,12 +11,13 @@
 
 .hello {
   display: inline-block;
-  border-radius: 15%;
+  border-radius: 5px;
   padding: 0.2% 2%;
   color: #3abcff;
   font-weight: bold;
   font-size: 1em;
   background-color: #ffffff;
+  padding: 0.5% 1.5%;
 }
 
 .arrow-down {
@@ -27,11 +31,13 @@
 }
 
 .heading {
-  margin-top: -5%;
+  margin-top: -1%;
   color: #fff;
 }
 
 .heading h1 {
-  font-size: 3.2em;
-  margin-bottom: 0;
+  font-size: 3.3em;
+  font-weight: lighter;
+  margin-bottom: 2%;
+  margin-top: 0;
 }

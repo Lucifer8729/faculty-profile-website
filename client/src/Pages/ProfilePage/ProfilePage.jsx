@@ -4,6 +4,7 @@ import { Box, Grid } from "@mui/material";
 
 import profilePic from "../../assets/sampleProfilePic.png";
 import "./styles.css";
+import ProfileButton from "../../components/UI/Button";
 
 const ProfilePage = () => {
   const [activeTab, setActiveTab] = useState({ tab1: "", tab2: "", tab3: "" });
@@ -26,7 +27,11 @@ const ProfilePage = () => {
           </div>
         </Grid>
         <Grid item xs={4} sx={{ bgcolor: "blue" }}>
-          about
+          <Box sx={{ bgcolor: "red" }}>
+            <ProfileButton>About</ProfileButton>
+            <ProfileButton>Experience</ProfileButton>
+            <ProfileButton>Skills</ProfileButton>
+          </Box>
         </Grid>
       </Grid>
     </Box>

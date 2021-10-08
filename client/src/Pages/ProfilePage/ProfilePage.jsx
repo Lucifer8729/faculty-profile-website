@@ -37,7 +37,7 @@ const education = [
 ];
 
 const ProfilePage = () => {
-  const [activeTab, setActiveTab] = useState({ tab1: "", tab2: "", tab3: "1" });
+  const [activeTab, setActiveTab] = useState({ tab1: "1", tab2: "", tab3: "" });
 
   return (
     <Box

@@ -1,3 +1,14 @@
 .box {
   margin-left: 10%;
 }
+
+.skill-container {
+  display: flex;
+}
+
+.skill-bar {
+  border-radius: 50px;
+  width: 100%;
+  background-color: #c7c7c7;
+  height: 8px;
+}

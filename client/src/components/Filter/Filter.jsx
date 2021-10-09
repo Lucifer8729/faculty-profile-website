@@ -59,7 +59,7 @@ const Filter = () => {
           InputProps={{
             endAdornment: (
               <LibraryBooksIcon
-                sx={{ fontSize: "1.3rem", color: "#3ABCFF", ml: 1 }}
+                sx={{ fontSize: "1.3rem", color: "#747474", ml: 1 }}
               />
             ),
           }}

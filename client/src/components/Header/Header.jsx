@@ -31,6 +31,11 @@ const Header = () => {
           </Link>
         </Button>
         <Button variant="outlined">
+          <Link href="/patentpage" underline="none">
+            patent
+          </Link>
+        </Button>
+        <Button variant="outlined">
           <Link href="/experiencepage" underline="none">
             experience
           </Link>

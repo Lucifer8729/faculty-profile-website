@@ -18,7 +18,10 @@ const Map = () => {
       zoom: 14.2,
     });
 
-    map.addControl(new mapboxgl.NavigationControl(), "bottom-right");
+    map.addControl(
+      new mapboxgl.NavigationControl({ showCompass: false }),
+      "bottom-right"
+    );
 
     map.addControl(
       new mapboxgl.GeolocateControl({

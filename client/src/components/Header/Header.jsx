@@ -1,51 +1,36 @@
 import React from "react";
-import { Button, ButtonGroup, Link } from "@mui/material";
+import { NavLink } from "react-router-dom";
+
+// import { Button, ButtonGroup, Link } from "@mui/material";
 
 import "./styles.css";
+
+const links = [
+  { to: "/", name: "home" },
+  { to: "/profilepage", name: "profile" },
+  { to: "/coursepage", name: "course" },
+  { to: "/publicationpage", name: "publication" },
+  { to: "/patentpage", name: "patent" },
+  { to: "/experiencepage", name: "experience" },
+  { to: "/contactpage", name: "contact" },
+];
 
 const Header = () => {
   return (
     <div className="header">
-      <ButtonGroup
-        variant="contained"
-        aria-label="outlined primary button group"
-      >
-        <Button variant="outlined">
-          <Link href="/" underline="none">
-            home
-          </Link>
-        </Button>
-        <Button variant="outlined">
-          <Link href="/profilepage" underline="none">
-            profile
-          </Link>
-        </Button>
-        <Button variant="outlined">
-          <Link href="/coursepage" underline="none">
-            course
-          </Link>
-        </Button>
-        <Button variant="outlined">
-          <Link href="/publicationpage" underline="none">
-            publication
-          </Link>
-        </Button>
-        <Button variant="outlined">
-          <Link href="/patentpage" underline="none">
-            patent
-          </Link>
-        </Button>
-        <Button variant="outlined">
-          <Link href="/experiencepage" underline="none">
-            experience
-          </Link>
-        </Button>
-        <Button variant="outlined">
-          <Link href="/contactpage" underline="none">
-            contact
-          </Link>
-        </Button>
-      </ButtonGroup>
+      <div className="header-logo">LOGO</div>
+      {links.map((link) => (
+        <div className="link-div">
+          <NavLink
+            exact
+            to={link.to}
+            activeClassName="selected-link"
+            className="header-links"
+          >
+            {link.name}
+          </NavLink>
+        </div>
+      ))}
     </div>
   );
 };

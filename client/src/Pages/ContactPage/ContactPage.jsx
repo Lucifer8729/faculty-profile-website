@@ -3,7 +3,14 @@ import { Box } from "@mui/system";
 import React from "react";
 import Map from "../../components/Map/Map";
 
+import * as utils from "../../components/UI/utils";
+
 const ContactPage = () => {
+  React.useEffect(() => {
+    utils.addActiveClassInLinks("Contact");
+    return () => utils.removeActiveClassInLinks("Contact");
+  }, []);
+
   return (
     <Box
       sx={{

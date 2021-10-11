@@ -7,7 +7,14 @@ import PatentCard from "../../components/PatentCard/PatentCard";
 
 import samplePublications from "./SAMPLE_DATA";
 
+import * as utils from "../../components/UI/utils";
+
 const PatentPage = () => {
+  React.useEffect(() => {
+    utils.addActiveClassInLinks("Patent");
+    return () => utils.removeActiveClassInLinks("Patent");
+  }, []);
+
   return (
     <Box
       sx={{

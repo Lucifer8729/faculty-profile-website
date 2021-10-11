@@ -9,6 +9,8 @@ import About from "../../components/About/About";
 import Education from "../../components/Education/Education";
 import Skill from "../../components/Skill/Skill";
 
+import * as utils from "../../components/UI/utils";
+
 const education = [
   {
     degree: "Master of Engineering (M.E) in Software Engineering",
@@ -38,6 +40,11 @@ const education = [
 
 const ProfilePage = () => {
   const [activeTab, setActiveTab] = useState({ tab1: "1", tab2: "", tab3: "" });
+
+  React.useEffect(() => {
+    utils.addActiveClassInLinks("Profile");
+    return () => utils.removeActiveClassInLinks("Profile");
+  }, []);
 
   return (
     <Box

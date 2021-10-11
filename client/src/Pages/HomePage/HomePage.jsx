@@ -17,6 +17,13 @@ const theme = createTheme({
 });
 
 const HomePage = () => {
+  React.useEffect(() => {
+    document.querySelector(".header").style.backgroundColor = "transparent";
+
+    return () =>
+      (document.querySelector(".header").style.backgroundColor = "#0080ff");
+  }, []);
+
   return (
     <ThemeProvider theme={theme}>
       <Box

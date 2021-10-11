@@ -7,7 +7,14 @@ import PublicationCard from "../../components/PublicationCard/PublicationCard";
 
 import samplePublications from "./SAMPLE_DATA";
 
+import * as utils from "../../components/UI/utils";
+
 const PublicationPage = () => {
+  React.useEffect(() => {
+    utils.addActiveClassInLinks("Publication");
+    return () => utils.removeActiveClassInLinks("Publication");
+  }, []);
+
   return (
     <Box
       sx={{

@@ -1,0 +1,12 @@
+.card {
+  position: relative;
+}
+
+.course-img {
+  width: 9rem;
+  height: auto;
+  position: absolute;
+  right: -7%;
+  bottom: -10%;
+  transform: rotate(12deg);
+}

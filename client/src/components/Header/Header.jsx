@@ -6,7 +6,7 @@ import { Grid, Box } from "@mui/material";
 import "./styles.css";
 
 const links = [
-  { to: "/", name: "Home" },
+  { to: "/home", name: "Home" },
   { to: "/profilepage", name: "Profile" },
   { to: "/coursepage", name: "Course" },
   { to: "/publicationpage", name: "Publication" },
@@ -26,7 +26,7 @@ const Header = () => {
         sx={{ pr: 5, pl: 5, height: "100%" }}
       >
         <Grid item xs={1}>
-          <NavLink exact to="/">
+          <NavLink exact to="/home">
             <div className="header-logo">LOGO</div>
           </NavLink>
         </Grid>
@@ -40,7 +40,7 @@ const Header = () => {
           >
             {links.map((link, i) => (
               <Grid item key={i} xs={1} sx={{ width: "100%" }}>
-                <NavLink exact to={link.to} activeClassName={`selected-link`}>
+                <NavLink to={link.to} activeClassName={`selected-link`}>
                   <Box
                     sx={{
                       // pr: 2,

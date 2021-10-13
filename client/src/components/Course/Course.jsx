@@ -38,6 +38,8 @@ const Course = (props) => {
           <Button
             variant="contained"
             sx={{
+              pt: 0.5,
+              pb: 0.5,
               mt: 12,
               borderRadius: "10px",
               "&: hover": { bgcolor: "#ffffff" },

@@ -1,0 +1,40 @@
+.doc-icon__div {
+  display: flex;
+  margin: auto;
+  background-color: #0080ff;
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 50px;
+  justify-content: center;
+  align-items: center;
+}
+.doc-icon__div i {
+  color: #fff;
+}
+
+.content p {
+  margin-top: 0;
+  font-size: 0.8em;
+  color: #0080ff;
+  font-weight: 700;
+  margin-bottom: 1em;
+}
+
+.content h3 {
+  margin-bottom: 0em;
+}
+
+.download-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #0080ff;
+}
+
+.download-icon i {
+  cursor: pointer;
+}
+
+.download-icon i:hover {
+  color: #3abcff;
+}

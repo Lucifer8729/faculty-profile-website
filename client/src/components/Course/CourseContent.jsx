@@ -9,6 +9,22 @@ import courseImg from "../../assets/js.svg";
 import * as utils from "../../components/UI/utils";
 import ProfileButton from "../UI/Button";
 import Overview from "./Overview/Overview";
+import Document from "./Document/Document";
+
+const documents = [
+  {
+    title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    date: "October 12, 2021",
+  },
+  {
+    title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    date: "October 12, 2021",
+  },
+  {
+    title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    date: "October 12, 2021",
+  },
+];
 
 const CourseContent = () => {
   const [courseActiveTab, setCourseActiveTab] = useState({
@@ -169,11 +185,71 @@ const CourseContent = () => {
             Unit 5
           </ProfileButton>
         </Grid>
-        <Grid item xs={12}>
-          {courseActiveTab.tab1 === "1" && (
+        {courseActiveTab.tab1 === "1" && (
+          <Grid item xs={12}>
             <Overview title="About This Course" />
-          )}
-        </Grid>
+          </Grid>
+        )}
+        {courseActiveTab.tab2 === "1" &&
+          documents.map((doc, i) => (
+            <Grid
+              key={i}
+              mt={3}
+              container
+              xs={12}
+              sx={{ bgcolor: "#fff", borderRadius: "15px" }}
+            >
+              <Document doc={doc} />
+            </Grid>
+          ))}
+        {courseActiveTab.tab3 === "1" &&
+          documents.map((doc, i) => (
+            <Grid
+              key={i}
+              mt={3}
+              container
+              xs={12}
+              sx={{ bgcolor: "#fff", borderRadius: "15px" }}
+            >
+              <Document doc={doc} />
+            </Grid>
+          ))}
+        {courseActiveTab.tab4 === "1" &&
+          documents.map((doc, i) => (
+            <Grid
+              key={i}
+              mt={3}
+              container
+              xs={12}
+              sx={{ bgcolor: "#fff", borderRadius: "15px" }}
+            >
+              <Document doc={doc} />
+            </Grid>
+          ))}
+        {courseActiveTab.tab5 === "1" &&
+          documents.map((doc, i) => (
+            <Grid
+              key={i}
+              mt={3}
+              container
+              xs={12}
+              sx={{ bgcolor: "#fff", borderRadius: "15px" }}
+            >
+              <Document doc={doc} />
+            </Grid>
+          ))}
+        {courseActiveTab.tab6 === "1" &&
+          documents.map((doc, i) => (
+            <Grid
+              key={i}
+              mt={3}
+              container
+              xs={12}
+              sx={{ bgcolor: "#fff", borderRadius: "15px" }}
+            >
+              <Document doc={doc} />
+            </Grid>
+          ))}
       </Grid>
     </Box>
   );

@@ -1,14 +1,19 @@
-.card {
+.header-box {
   position: relative;
+  padding: 2%;
+  width: 60%;
+  height: 16vh;
+  overflow: hidden;
+  margin: 7rem auto 1rem auto;
 }
 
 .course-img {
-  width: 9rem;
+  width: 12rem;
   height: auto;
   position: absolute;
-  right: -7%;
-  bottom: -10%;
-  transform: rotate(12deg);
+  right: 2rem;
+  top: 0.2rem;
+  transform: rotate(-12deg);
   opacity: 0.8;
   filter: invert(83%) sepia(120%) saturate(100%) hue-rotate(100deg)
     brightness(112%) contrast(101%);

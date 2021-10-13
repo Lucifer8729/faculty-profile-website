@@ -6,7 +6,7 @@ import classes from "./About.module.css";
 const About = (props) => {
   return (
     <Box className={classes.box}>
-      <h1>My Story</h1>
+      <h1>{props.title}</h1>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque viverra
         neque tellus, quis viverra nulla semper vitae. Phasellus feugiat arcu ut

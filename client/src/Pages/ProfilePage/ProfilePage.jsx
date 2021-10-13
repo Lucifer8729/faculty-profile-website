@@ -39,7 +39,11 @@ const education = [
 ];
 
 const ProfilePage = () => {
-  const [activeTab, setActiveTab] = useState({ tab1: "1", tab2: "", tab3: "" });
+  const [profileActiveTab, setProfileActiveTab] = useState({
+    tab1: "1",
+    tab2: "",
+    tab3: "",
+  });
 
   React.useEffect(() => {
     utils.addActiveClassInLinks("Profile");
@@ -68,34 +72,34 @@ const ProfilePage = () => {
           <Box sx={{ marginLeft: "10%" }}>
             <ProfileButton
               onClick={() => {
-                setActiveTab({ tab1: "1", tab2: "", tab3: "" });
+                setProfileActiveTab({ tab1: "1", tab2: "", tab3: "" });
               }}
-              value={activeTab.tab1}
+              value={profileActiveTab.tab1}
               className="button-click"
             >
               About Me
             </ProfileButton>
             <ProfileButton
               onClick={() => {
-                setActiveTab({ tab1: "", tab2: "1", tab3: "" });
+                setProfileActiveTab({ tab1: "", tab2: "1", tab3: "" });
               }}
-              value={activeTab.tab2}
+              value={profileActiveTab.tab2}
               className="button-click"
             >
               Education
             </ProfileButton>
             <ProfileButton
               onClick={() => {
-                setActiveTab({ tab1: "", tab2: "", tab3: "1" });
+                setProfileActiveTab({ tab1: "", tab2: "", tab3: "1" });
               }}
-              value={activeTab.tab3}
+              value={profileActiveTab.tab3}
               className="button-click"
             >
               Skills
             </ProfileButton>
           </Box>
-          {activeTab.tab1 === "1" && <About />}
-          {activeTab.tab2 === "1" && (
+          {profileActiveTab.tab1 === "1" && <About title="My Story" />}
+          {profileActiveTab.tab2 === "1" && (
             <Box sx={{ overflowY: "auto", height: "60vh" }}>
               {education.map((e, i) => (
                 <Education
@@ -107,7 +111,7 @@ const ProfilePage = () => {
               ))}
             </Box>
           )}
-          {activeTab.tab3 === "1" && <Skill />}
+          {profileActiveTab.tab3 === "1" && <Skill />}
         </Grid>
       </Grid>
     </Box>

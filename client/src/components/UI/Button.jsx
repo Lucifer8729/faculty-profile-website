@@ -7,7 +7,9 @@ const ProfileButton = (props) => {
     props.onClick();
   };
   return (
-    <Box className={classes.box}>
+    <Box
+      className={props.type === "course" ? classes["course-box"] : classes.box}
+    >
       <button
         className={
           props.value === "1" ? classes[props.className] : classes.button

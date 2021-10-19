@@ -7,7 +7,13 @@ import ProfileButton from "../../components/UI/Button";
 import * as utils from "../../components/UI/utils";
 
 const columns = [
-  { field: "id", headerName: "ID", width: 70 },
+  {
+    field: "id",
+    headerName: "ID",
+    width: 70,
+    headerClassName: "super-app-theme--header",
+    headerAlign: "center",
+  },
   { field: "firstName", headerName: "First name", width: 130 },
   { field: "lastName", headerName: "Last name", width: 130 },
   {
@@ -109,21 +115,23 @@ const ExperiencePage = () => {
           </ProfileButton>
         </Grid>
       </Grid>
-      <DataGrid
-        style={{
-          marginTop: "2%",
-          width: "70%",
-          height: "60vh",
-          marginLeft: "auto",
-          marginRight: "auto",
-          backgroundColor: "#0080ff",
-          color: "#ffffff",
-        }}
-        rows={rows}
-        columns={columns}
-        pageSize={5}
-        rowsPerPageOptions={[5]}
-      />
+      {expActiveTab.tab1 === "1" && (
+        <DataGrid
+          style={{
+            marginTop: "2%",
+            width: "70%",
+            height: "60vh",
+            marginLeft: "auto",
+            marginRight: "auto",
+            backgroundColor: "#0080ff",
+            color: "#ffffff",
+          }}
+          rows={rows}
+          columns={columns}
+          pageSize={5}
+          rowsPerPageOptions={[5]}
+        />
+      )}
     </Box>
   );
 };

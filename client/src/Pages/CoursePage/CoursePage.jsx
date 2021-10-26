@@ -64,6 +64,27 @@ const courses = [
     materials: "2",
     img: jsImg,
   },
+  {
+    id: "9",
+    title: "Programming In Javascript",
+    units: "5",
+    materials: "2",
+    img: jsImg,
+  },
+  {
+    id: "10",
+    title: "Programming In Javascript",
+    units: "5",
+    materials: "2",
+    img: jsImg,
+  },
+  {
+    id: "11",
+    title: "Programming In Javascript",
+    units: "5",
+    materials: "2",
+    img: jsImg,
+  },
 ];
 
 const CoursePage = () => {
@@ -82,20 +103,22 @@ const CoursePage = () => {
         zIndex: "-1",
       }}
     >
-      <Grid
-        container
-        justifyContent="flex-start"
-        alignItems="center"
-        spacing={3}
-        mt={15}
-        sx={{ pr: 25, pl: 25 }}
-      >
-        {courses.map((course, i) => (
-          <Grid item key={i} xs={12} md={3}>
-            <Course {...course} />
-          </Grid>
-        ))}
-      </Grid>
+      <Box sx={{ height: "75vh", overflowY: "auto", pt: 5 }} mt={15}>
+        <Grid
+          container
+          justifyContent="flex-start"
+          alignItems="center"
+          spacing={3}
+          // mt={15}
+          sx={{ pr: 25, pl: 25 }}
+        >
+          {courses.map((course, i) => (
+            <Grid item key={i} xs={12} md={6} lg={3}>
+              <Course {...course} />
+            </Grid>
+          ))}
+        </Grid>
+      </Box>
     </Box>
   );
 };

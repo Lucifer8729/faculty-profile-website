@@ -45,7 +45,7 @@ const Course = (props) => {
               "&: hover": { bgcolor: "#ffffff" },
             }}
             href={`/coursepage/${id}`}
-            onClick={() => console.log("Clicked")}
+            // onClick={() => console.log("Clicked")}
           >
             View
           </Button>

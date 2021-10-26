@@ -1,8 +1,11 @@
 import React from "react";
 import { Box } from "@mui/system";
-import { Grid } from "@mui/material";
+import { Grid, IconButton } from "@mui/material";
+import EditIcon from "@mui/icons-material/Edit";
+import Modal from "@mui/material/Modal";
 
 import SkillBar from "./SkillBar";
+import { SkillForms } from "../Forms/ProfileForms";
 
 import classes from "./Skill.module.css";
 
@@ -14,9 +17,33 @@ const skillList = [
   // ["HTML/CSS", "80"],
 ];
 
-const Skill = (props) => {
+const Skill = () => {
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   return (
     <Box className={classes.box}>
+      <IconButton
+        sx={{
+          color: "#0080ff",
+          position: "absolute",
+          transform: "translate(-110%, 10%)",
+        }}
+        onClick={handleOpen}
+      >
+        <EditIcon />
+      </IconButton>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box>
+          <SkillForms close={handleClose} />
+        </Box>
+      </Modal>
       <h1>My Skills</h1>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque viverra

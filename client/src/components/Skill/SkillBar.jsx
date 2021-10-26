@@ -1,10 +1,16 @@
 import React from "react";
 
 import { Grid } from "@mui/material";
+import { IconButton } from "@mui/material";
+import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 
 import classes from "./Skill.module.css";
 
 const SkillBar = ({ skill, percent }) => {
+  const handleClick = () => {
+    console.log(skill);
+  };
+
   return (
     <>
       <Grid
@@ -13,6 +19,17 @@ const SkillBar = ({ skill, percent }) => {
         justifyContent="space-between"
         alignItems="baseline"
       >
+        <IconButton
+          size="small"
+          sx={{
+            position: "absolute",
+            transform: "translate(-80%, 40%)",
+            color: "red",
+          }}
+          onClick={handleClick}
+        >
+          <HighlightOffIcon />
+        </IconButton>
         <Grid item>
           <h3>{skill}</h3>
         </Grid>

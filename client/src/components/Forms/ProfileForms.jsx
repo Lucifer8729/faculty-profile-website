@@ -63,7 +63,7 @@ export const EducationForms = ({ close }) => {
   return (
     <Box sx={style}>
       <Typography variant="h5" sx={{ mb: 2 }}>
-        My Story :
+        My Degree :
       </Typography>
       <TextField
         id="outlined-multiline-static"
@@ -111,6 +111,34 @@ export const EducationForms = ({ close }) => {
         label="Institute"
         multiline
         rows={2}
+        sx={{ width: 600, mb: 3 }}
+      />
+      <br />
+      <Button variant="contained" startIcon={<AddIcon />} onClick={close}>
+        add
+      </Button>
+    </Box>
+  );
+};
+
+export const SkillForms = ({ close }) => {
+  return (
+    <Box sx={style}>
+      <Typography variant="h5" sx={{ mb: 2 }}>
+        New Skill :
+      </Typography>
+      <TextField
+        id="outlined-multiline-static"
+        label="Skill Name"
+        multiline
+        rows={1}
+        sx={{ width: 600, mb: 2 }}
+      />
+      <br />
+      <TextField
+        id="outlined-number"
+        label="Rate it on 0-100"
+        type="number"
         sx={{ width: 600, mb: 3 }}
       />
       <br />

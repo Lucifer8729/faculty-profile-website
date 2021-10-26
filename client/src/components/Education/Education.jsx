@@ -9,6 +9,7 @@ const Education = (props) => {
   const handleClick = () => {
     console.log(props.id);
   };
+
   return (
     <Box className={classes.box}>
       <IconButton

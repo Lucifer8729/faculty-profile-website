@@ -10,6 +10,7 @@ import PatentPage from "./Pages/PatentPage/PatentPage";
 import ProfilePage from "./Pages/ProfilePage/ProfilePage";
 import PublicationPage from "./Pages/PublicationPage/PublicationPage";
 import CourseContent from "./components/Course/CourseContent";
+import LoginPage from "./Pages/LoginPage/LoginPage";
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
         <Route path="/coursepage" exact component={CoursePage} />
         <Route path="/coursepage/:id" exact component={CourseContent} />
         <Route path="/contactpage" exact component={ContactPage} />
+        <Route path="/login" exact component={LoginPage} />
         <Route path="/home" exact component={HomePage} />
         <Route path="/" exact component={() => <Redirect to="/home" />} />
       </Switch>

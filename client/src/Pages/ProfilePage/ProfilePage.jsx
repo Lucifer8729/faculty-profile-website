@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 
-import { Box, Grid } from "@mui/material";
+import { Box, Grid, Button } from "@mui/material";
+import Modal from "@mui/material/Modal";
+import AddIcon from "@mui/icons-material/Add";
 
 import profilePic from "../../assets/sampleProfilePic.png";
 import "./styles.css";
@@ -8,6 +10,7 @@ import ProfileButton from "../../components/UI/Button";
 import About from "../../components/About/About";
 import Education from "../../components/Education/Education";
 import Skill from "../../components/Skill/Skill";
+import { EducationForms } from "../../components/Forms/ProfileForms";
 
 import * as utils from "../../components/UI/utils";
 
@@ -44,6 +47,9 @@ const ProfilePage = () => {
     tab2: "",
     tab3: "",
   });
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   React.useEffect(() => {
     utils.addActiveClassInLinks("Profile");
@@ -101,9 +107,29 @@ const ProfilePage = () => {
           {profileActiveTab.tab1 === "1" && <About title="My Story" />}
           {profileActiveTab.tab2 === "1" && (
             <Box sx={{ overflowY: "auto", height: "60vh" }}>
+              <Button
+                variant="contained"
+                size="small"
+                sx={{ mt: 2, ml: "10%" }}
+                startIcon={<AddIcon />}
+                onClick={handleOpen}
+              >
+                ADD
+              </Button>
+              <Modal
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+              >
+                <Box>
+                  <EducationForms close={handleClose} />
+                </Box>
+              </Modal>
               {education.map((e, i) => (
                 <Education
                   key={i}
+                  id={i}
                   degree={e.degree}
                   year={e.year}
                   institute={e.institute}

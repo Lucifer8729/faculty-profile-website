@@ -3,6 +3,8 @@ import React from "react";
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import { Button, Typography } from "@mui/material";
+import DesktopDatePicker from "@mui/lab/DesktopDatePicker";
+import AddIcon from "@mui/icons-material/Add";
 
 const style = {
   position: "absolute",
@@ -49,6 +51,71 @@ export const AboutForms = ({ close }) => {
       <br />
       <Button variant="contained" onClick={close}>
         save
+      </Button>
+    </Box>
+  );
+};
+
+export const EducationForms = ({ close }) => {
+  const [from, setFrom] = React.useState(new Date());
+  const [to, setTo] = React.useState(from);
+
+  return (
+    <Box sx={style}>
+      <Typography variant="h5" sx={{ mb: 2 }}>
+        My Story :
+      </Typography>
+      <TextField
+        id="outlined-multiline-static"
+        label="Degree"
+        multiline
+        rows={1}
+        sx={{ width: 600, mb: 2 }}
+      />
+      <br />
+      <DesktopDatePicker
+        label="Start Date"
+        value={from}
+        minDate={new Date("2017-01-01")}
+        onChange={(newValue) => {
+          setFrom(newValue);
+        }}
+        renderInput={(params) => (
+          <TextField
+            size="small"
+            sx={{ width: 290, mr: 2, mb: 2 }}
+            fullWidth
+            {...params}
+          />
+        )}
+      />
+      <DesktopDatePicker
+        label="End Date"
+        value={to}
+        minDate={from}
+        onChange={(newValue) => {
+          setTo(newValue);
+        }}
+        renderInput={(params) => (
+          <TextField
+            size="small"
+            sx={{ width: 290, mb: 2 }}
+            fullWidth
+            {...params}
+          />
+        )}
+      />
+      <br />
+      <TextField
+        id="outlined-multiline-static"
+        label="Institute"
+        multiline
+        rows={2}
+        sx={{ width: 600, mb: 3 }}
+      />
+      <br />
+      <Button variant="contained" startIcon={<AddIcon />} onClick={close}>
+        add
       </Button>
     </Box>
   );

@@ -31,7 +31,9 @@ const About = (props) => {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <AboutForms close={handleClose} />
+        <Box>
+          <AboutForms close={handleClose} />
+        </Box>
       </Modal>
       <h1>{props.title}</h1>
       <p>

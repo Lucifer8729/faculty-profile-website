@@ -6,7 +6,7 @@ import Modal from "@mui/material/Modal";
 
 import classes from "./About.module.css";
 
-import { AboutForms } from "../Forms/Forms";
+import { AboutForms } from "../Forms/ProfileForms";
 
 const About = (props) => {
   const [open, setOpen] = React.useState(false);
@@ -31,7 +31,7 @@ const About = (props) => {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <AboutForms />
+        <AboutForms close={handleClose} />
       </Modal>
       <h1>{props.title}</h1>
       <p>

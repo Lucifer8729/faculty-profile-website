@@ -29,4 +29,10 @@ export const addNewPublication = (input, date) => {
   };
 };
 
-export const deletePublication = () => {};
+export const deletePublication = (index, array) => {
+  array.splice(index, 1);
+
+  return {
+    newList: array,
+  };
+};

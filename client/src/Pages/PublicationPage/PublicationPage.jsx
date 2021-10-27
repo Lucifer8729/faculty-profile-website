@@ -49,7 +49,7 @@ const PublicationPage = () => {
             mb={1}
             sx={{ fontWeight: "bold" }}
           >
-            Lorem ipsum dolor sit amet
+            Lorem ipsum dolor sit amet {`(${publicationsList.length})`}
           </Typography>
           <Button
             variant="contained"

@@ -49,6 +49,7 @@ const publicationReducer = (state = INITIAL_STATE, action) => {
     case types.DELETE_PUBLICATION:
       return {
         ...state,
+        PublicationList: [...action.payload.newList],
       };
 
     default:

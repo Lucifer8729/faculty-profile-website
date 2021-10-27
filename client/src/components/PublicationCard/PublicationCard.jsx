@@ -15,6 +15,9 @@ import DownloadIcon from "@mui/icons-material/Download";
 import ArrowRightAltSharpIcon from "@mui/icons-material/ArrowRightAltSharp";
 import DeleteIcon from "@mui/icons-material/Delete";
 
+import { useSelector, useDispatch } from "react-redux";
+import { deletePublication } from "../../redux/publication/publications.actions";
+
 const showAuthors = (authorsList) => {
   let list = "";
   const n = authorsList.length;
@@ -37,9 +40,13 @@ const showAuthors = (authorsList) => {
 
 const PublicationCard = (props) => {
   const { title, date, location, description, authors, viewLink, id } = props;
+  const dispatch = useDispatch();
+  const publicationsList = useSelector(
+    (state) => state.publicationReducer.PublicationList
+  );
 
   const handleDelete = () => {
-    console.log(id);
+    dispatch(deletePublication(id, publicationsList));
   };
 
   return (

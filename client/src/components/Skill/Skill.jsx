@@ -9,15 +9,10 @@ import { SkillForms } from "../Forms/ProfileForms";
 
 import classes from "./Skill.module.css";
 
-const skillList = [
-  ["HTML/CSS", "80"],
-  ["C/C++", "90"],
-  ["Javascript", "95"],
-  ["Python", "90"],
-  // ["HTML/CSS", "80"],
-];
+import { useSelector } from "react-redux";
 
 const Skill = () => {
+  const skillList = useSelector((state) => state.profileReducer.SkillList);
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -51,7 +46,7 @@ const Skill = () => {
         sagittis mollis. Etiam viverra, eros in venenatis eleifend, tortor purus
         fringilla orci, in pulvinar lectus sem vel ligula.
       </p>
-      <Box sx={{ overflowY: "auto", height: "30vh" }}>
+      <Box sx={{ overflowY: "auto", height: "30vh", position: "relative" }}>
         <Grid
           container
           direction="row"
@@ -61,7 +56,7 @@ const Skill = () => {
         >
           {skillList.map((skill, i) => (
             <Grid item key={i} xs={6} sx={{ pr: 2 }}>
-              <SkillBar skill={skill[0]} percent={skill[1]} />
+              <SkillBar id={i} skill={skill[0]} percent={skill[1]} />
             </Grid>
           ))}
         </Grid>

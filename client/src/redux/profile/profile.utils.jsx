@@ -25,3 +25,20 @@ export const deleteDegree = (index, array) => {
     newList: array,
   };
 };
+
+export const addNewSkill = ({ skill, rating }) => {
+  let r = 0;
+  if (rating > 100) r = 100;
+  else if (rating > 0) r = rating;
+  return {
+    newSkill: [skill, r],
+  };
+};
+
+export const deleteSkill = (index, array) => {
+  array.splice(index, 1);
+
+  return {
+    newList: array,
+  };
+};

@@ -27,6 +27,13 @@ const INITIAL_STATE = {
         "Bannari Amman Institute of Technology (BIT) - Sathy. Anna University, Tamil Nade, India",
     },
   ],
+
+  SkillList: [
+    ["HTML/CSS", "80"],
+    ["C/C++", "90"],
+    ["Javascript", "95"],
+    ["Python", "90"],
+  ],
 };
 
 const profileReducer = (state = INITIAL_STATE, action) => {
@@ -48,6 +55,18 @@ const profileReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         Education: [...action.payload.newList],
+      };
+
+    case types.ADD_NEW_SKILL:
+      return {
+        ...state,
+        SkillList: [action.payload.newSkill, ...state.SkillList],
+      };
+
+    case types.DELETE_SKILL:
+      return {
+        ...state,
+        SkillList: [...action.payload.newList],
       };
 
     default:

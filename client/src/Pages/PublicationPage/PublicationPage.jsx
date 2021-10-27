@@ -1,15 +1,22 @@
 import React from "react";
 
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Grid, Typography, Button } from "@mui/material";
+import Modal from "@mui/material/Modal";
+import AddIcon from "@mui/icons-material/Add";
 
 import Filter from "../../components/Filter/Filter";
 import PublicationCard from "../../components/PublicationCard/PublicationCard";
+import { PublicationForms } from "../../components/Forms/PublicationForms";
 
 import samplePublications from "./SAMPLE_DATA";
 
 import * as utils from "../../components/UI/utils";
 
 const PublicationPage = () => {
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   React.useEffect(() => {
     utils.addActiveClassInLinks("Publication");
     return () => utils.removeActiveClassInLinks("Publication");
@@ -29,7 +36,7 @@ const PublicationPage = () => {
         <Grid item xs={6} md={2} mr={4} mb={7}>
           <Filter />
         </Grid>
-        <Grid item xs={12} md={7}>
+        <Grid item xs={12} md={7} sx={{ position: "relative" }}>
           <Typography
             variant="subtitle1"
             pl={2}
@@ -39,6 +46,25 @@ const PublicationPage = () => {
           >
             Lorem ipsum dolor sit amet
           </Typography>
+          <Button
+            variant="contained"
+            size="small"
+            sx={{ position: "absolute", mt: -5, mr: 4, right: 0 }}
+            startIcon={<AddIcon />}
+            onClick={handleOpen}
+          >
+            ADD
+          </Button>
+          <Modal
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+          >
+            <Box>
+              <PublicationForms close={handleClose} />
+            </Box>
+          </Modal>
           <Box sx={{ height: "75vh", overflowY: "auto", pr: 2, pl: 2 }}>
             {samplePublications.map((publication, i) => (
               <PublicationCard key={i} {...publication} />

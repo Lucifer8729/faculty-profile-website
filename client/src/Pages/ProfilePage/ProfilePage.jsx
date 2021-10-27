@@ -12,34 +12,9 @@ import Education from "../../components/Education/Education";
 import Skill from "../../components/Skill/Skill";
 import { EducationForms } from "../../components/Forms/ProfileForms";
 
-import * as utils from "../../components/UI/utils";
+import { useSelector } from "react-redux";
 
-const education = [
-  {
-    degree: "Master of Engineering (M.E) in Software Engineering",
-    year: "2011 - 2013",
-    institute:
-      "Bannari Amman Institute of Technology (BIT) - Sathy. Anna University, Tamil Nade, India",
-  },
-  {
-    degree: "Master of Engineering (M.E) in Software Engineering",
-    year: "2011 - 2013",
-    institute:
-      "Bannari Amman Institute of Technology (BIT) - Sathy. Anna University, Tamil Nade, India",
-  },
-  {
-    degree: "Master of Engineering (M.E) in Software Engineering",
-    year: "2011 - 2013",
-    institute:
-      "Bannari Amman Institute of Technology (BIT) - Sathy. Anna University, Tamil Nade, India",
-  },
-  // {
-  //   degree: "Master of Engineering (M.E) in Software Engineering",
-  //   year: "2011 - 2013",
-  //   institute:
-  //     "Bannari Amman Institute of Technology (BIT) - Sathy. Anna University, Tamil Nade, India",
-  // },
-];
+import * as utils from "../../components/UI/utils";
 
 const ProfilePage = () => {
   const [profileActiveTab, setProfileActiveTab] = useState({
@@ -47,6 +22,7 @@ const ProfilePage = () => {
     tab2: "",
     tab3: "",
   });
+  const education = useSelector((state) => state.profileReducer.Education);
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);

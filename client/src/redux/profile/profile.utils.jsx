@@ -5,3 +5,12 @@ export const editAboutMe = (input) => {
     detail: input.detail,
   };
 };
+
+export const addNewDegree = (input) => {
+  return {
+    degree: input.degree,
+    startDate: input.startDate,
+    endDate: input.endDate,
+    institute: input.institute,
+  };
+};

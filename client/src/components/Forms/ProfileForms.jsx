@@ -7,7 +7,7 @@ import DesktopDatePicker from "@mui/lab/DesktopDatePicker";
 import AddIcon from "@mui/icons-material/Add";
 
 import { useDispatch, useSelector } from "react-redux";
-import { editAboutMe } from "../../redux/profile/profile.actions";
+import { editAboutMe, addNewDegree } from "../../redux/profile/profile.actions";
 
 const style = {
   position: "absolute",
@@ -108,8 +108,41 @@ export const AboutForms = ({ close }) => {
 };
 
 export const EducationForms = ({ close }) => {
+  const dispatch = useDispatch();
   const [from, setFrom] = React.useState(new Date());
   const [to, setTo] = React.useState(from);
+  const [input, setInput] = React.useState({
+    degree: "",
+    startDate: from,
+    endDate: to,
+    institute: "",
+  });
+
+  const handleDegreeChange = (e) => {
+    const value = e.target.value;
+    setInput((prevValue) => {
+      return {
+        ...prevValue,
+        degree: value,
+      };
+    });
+  };
+  const handleInstituteChange = (e) => {
+    const value = e.target.value;
+    setInput((prevValue) => {
+      return {
+        ...prevValue,
+        institute: value,
+      };
+    });
+  };
+
+  const handleAdd = () => {
+    console.log(input);
+    dispatch(addNewDegree(input));
+
+    close();
+  };
 
   return (
     <Box sx={style}>
@@ -122,6 +155,8 @@ export const EducationForms = ({ close }) => {
         multiline
         rows={1}
         sx={{ width: 600, mb: 2 }}
+        onChange={handleDegreeChange}
+        value={input.degree}
       />
       <br />
       <DesktopDatePicker
@@ -163,9 +198,11 @@ export const EducationForms = ({ close }) => {
         multiline
         rows={2}
         sx={{ width: 600, mb: 3 }}
+        onChange={handleInstituteChange}
+        value={input.institute}
       />
       <br />
-      <Button variant="contained" startIcon={<AddIcon />} onClick={close}>
+      <Button variant="contained" startIcon={<AddIcon />} onClick={handleAdd}>
         add
       </Button>
     </Box>

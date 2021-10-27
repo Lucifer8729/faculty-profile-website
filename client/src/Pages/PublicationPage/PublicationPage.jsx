@@ -8,11 +8,16 @@ import Filter from "../../components/Filter/Filter";
 import PublicationCard from "../../components/PublicationCard/PublicationCard";
 import { PublicationForms } from "../../components/Forms/PublicationForms";
 
-import samplePublications from "./SAMPLE_DATA";
+// import samplePublications from "./SAMPLE_DATA";
 
 import * as utils from "../../components/UI/utils";
 
+import { useSelector } from "react-redux";
+
 const PublicationPage = () => {
+  const publicationsList = useSelector(
+    (state) => state.publicationReducer.PublicationList
+  );
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -66,7 +71,7 @@ const PublicationPage = () => {
             </Box>
           </Modal>
           <Box sx={{ height: "75vh", overflowY: "auto", pr: 2, pl: 2 }}>
-            {samplePublications.map((publication, i) => (
+            {publicationsList.map((publication, i) => (
               <PublicationCard key={i} id={i} {...publication} />
             ))}
           </Box>

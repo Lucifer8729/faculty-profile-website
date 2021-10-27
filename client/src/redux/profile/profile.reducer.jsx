@@ -37,7 +37,6 @@ const INITIAL_STATE = {
 };
 
 const profileReducer = (state = INITIAL_STATE, action) => {
-  console.log(action);
   switch (action.type) {
     case types.EDIT_ABOUT_ME:
       return {

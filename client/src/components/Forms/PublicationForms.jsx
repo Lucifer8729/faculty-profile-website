@@ -6,10 +6,8 @@ import { Button, Typography } from "@mui/material";
 import DesktopDatePicker from "@mui/lab/DesktopDatePicker";
 import AddIcon from "@mui/icons-material/Add";
 
-// import { useDispatch, useSelector } from "react-redux";
-// import {
-//   editAboutMe,
-// } from "../../redux/profile/profile.actions";
+import { useDispatch } from "react-redux";
+import { addNewPublication } from "../../redux/publication/publications.actions";
 
 const style = {
   position: "absolute",
@@ -25,29 +23,32 @@ const style = {
 };
 
 export const PublicationForms = ({ close }) => {
-  //   const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const [from, setFrom] = React.useState(new Date());
   const [input, setInput] = React.useState({
-    header: "",
-    quote: "",
+    title: "",
+    location: "",
     detail: "",
+    authors: "",
+    viewLink: "",
+    downloadLink: "",
   });
 
-  const handleHeaderChange = (e) => {
+  const handleTitleChange = (e) => {
     const value = e.target.value;
     setInput((prevValue) => {
       return {
         ...prevValue,
-        header: value,
+        title: value,
       };
     });
   };
-  const handleQuoteChange = (e) => {
+  const handleLocationChange = (e) => {
     const value = e.target.value;
     setInput((prevValue) => {
       return {
         ...prevValue,
-        quote: value,
+        location: value,
       };
     });
   };
@@ -60,9 +61,36 @@ export const PublicationForms = ({ close }) => {
       };
     });
   };
+  const handleAuthorsChange = (e) => {
+    const value = e.target.value;
+    setInput((prevValue) => {
+      return {
+        ...prevValue,
+        authors: value,
+      };
+    });
+  };
+  const handleViewLinkChange = (e) => {
+    const value = e.target.value;
+    setInput((prevValue) => {
+      return {
+        ...prevValue,
+        viewLink: value,
+      };
+    });
+  };
+  const handleDownloadLinkChange = (e) => {
+    const value = e.target.value;
+    setInput((prevValue) => {
+      return {
+        ...prevValue,
+        downloadLink: value,
+      };
+    });
+  };
 
   const handleSave = () => {
-    // dispatch(editAboutMe(input));
+    dispatch(addNewPublication(input, from));
 
     close();
   };
@@ -78,8 +106,8 @@ export const PublicationForms = ({ close }) => {
         multiline
         rows={2}
         sx={{ width: 600, mb: 2 }}
-        onChange={handleHeaderChange}
-        value={input.header}
+        onChange={handleTitleChange}
+        value={input.title}
       />
       <br />
       <DesktopDatePicker
@@ -106,8 +134,8 @@ export const PublicationForms = ({ close }) => {
         rows={1}
         size="small"
         sx={{ width: 600, mb: 2 }}
-        onChange={handleQuoteChange}
-        value={input.quote}
+        onChange={handleLocationChange}
+        value={input.location}
       />
 
       <br />
@@ -129,8 +157,8 @@ export const PublicationForms = ({ close }) => {
         rows={1}
         size="small"
         sx={{ width: 600, mb: 3 }}
-        onChange={handleQuoteChange}
-        value={input.quote}
+        onChange={handleAuthorsChange}
+        value={input.authors}
       />
       <br />
       <TextField
@@ -138,6 +166,8 @@ export const PublicationForms = ({ close }) => {
         size="small"
         sx={{ width: 600, mb: 1 }}
         variant="filled"
+        onChange={handleViewLinkChange}
+        value={input.viewLink}
       />
       <br />
       <TextField
@@ -145,6 +175,8 @@ export const PublicationForms = ({ close }) => {
         size="small"
         sx={{ width: 600, mb: 3 }}
         variant="filled"
+        onChange={handleDownloadLinkChange}
+        value={input.downloadLink}
       />
       <br />
       <Button variant="contained" startIcon={<AddIcon />} onClick={handleSave}>

@@ -6,12 +6,14 @@ import {
   CardActions,
   CardContent,
   Link,
+  Grid,
   Typography,
 } from "@mui/material";
 import DateRangeIcon from "@mui/icons-material/DateRange";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import DownloadIcon from "@mui/icons-material/Download";
 import ArrowRightAltSharpIcon from "@mui/icons-material/ArrowRightAltSharp";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 const showAuthors = (authorsList) => {
   let list = "";
@@ -34,7 +36,12 @@ const showAuthors = (authorsList) => {
 };
 
 const PublicationCard = (props) => {
-  const { title, date, location, description, authors, viewLink } = props;
+  const { title, date, location, description, authors, viewLink, id } = props;
+
+  const handleDelete = () => {
+    console.log(id);
+  };
+
   return (
     <Card raised sx={{ p: 2, mb: 3 }}>
       <CardContent>
@@ -74,35 +81,61 @@ const PublicationCard = (props) => {
           {showAuthors(authors)}
         </Typography>
       </CardContent>
-      <CardActions sx={{ justifyContent: "right" }}>
-        <Link
-          href={viewLink}
-          underline="none"
-          sx={{
-            mr: 2,
-            verticalAlign: "middle",
-            display: "inline-flex",
-            color: "#3ABCFF",
-            "&: hover": {
-              color: "#0080FF",
-            },
-          }}
+      <CardActions sx={{ justifyContent: "left" }}>
+        <Grid
+          container
+          direction="row"
+          justifyContent="space-between"
+          alignItems="center"
         >
-          VIEW ONLINE
-          <ArrowRightAltSharpIcon />
-        </Link>
-        <Button
-          sx={{
-            bgcolor: "#3ABCFF",
-            "&: hover": {
-              bgcolor: "#0080FF",
-            },
-          }}
-          variant="contained"
-          endIcon={<DownloadIcon />}
-        >
-          download
-        </Button>
+          <Grid item>
+            <Button
+              sx={{
+                color: "#747474",
+                borderColor: "#747474",
+                "&: hover": {
+                  borderColor: "#747474",
+                },
+              }}
+              variant="outlined"
+              size="small"
+              startIcon={<DeleteIcon />}
+              onClick={handleDelete}
+            >
+              delete
+            </Button>
+          </Grid>
+          <Grid item>
+            <Link
+              href={viewLink}
+              underline="none"
+              sx={{
+                mr: 2,
+                verticalAlign: "middle",
+                display: "inline-flex",
+                color: "#3ABCFF",
+                "&: hover": {
+                  color: "#0080FF",
+                },
+              }}
+            >
+              VIEW ONLINE
+              <ArrowRightAltSharpIcon />
+            </Link>
+            <Button
+              sx={{
+                bgcolor: "#3ABCFF",
+                "&: hover": {
+                  bgcolor: "#0080FF",
+                },
+              }}
+              variant="contained"
+              endIcon={<DownloadIcon />}
+            >
+              download
+            </Button>
+          </Grid>
+        </Grid>
       </CardActions>
     </Card>
   );

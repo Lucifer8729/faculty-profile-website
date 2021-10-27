@@ -67,7 +67,7 @@ const PublicationPage = () => {
           </Modal>
           <Box sx={{ height: "75vh", overflowY: "auto", pr: 2, pl: 2 }}>
             {samplePublications.map((publication, i) => (
-              <PublicationCard key={i} {...publication} />
+              <PublicationCard key={i} id={i} {...publication} />
             ))}
           </Box>
         </Grid>

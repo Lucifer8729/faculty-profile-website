@@ -6,11 +6,22 @@ export const editAboutMe = (input) => {
   };
 };
 
-export const addNewDegree = (input) => {
+export const addNewDegree = (input, from, to) => {
+  const startDate = new Date(from);
+  const endDate = new Date(to);
+  const yearRange = `${startDate.getFullYear()} - ${endDate.getFullYear()}`;
+
   return {
     degree: input.degree,
-    startDate: input.startDate,
-    endDate: input.endDate,
+    year: yearRange,
     institute: input.institute,
+  };
+};
+
+export const deleteDegree = (index, array) => {
+  array.splice(index, 1);
+
+  return {
+    newList: array,
   };
 };

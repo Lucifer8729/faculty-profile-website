@@ -113,8 +113,6 @@ export const EducationForms = ({ close }) => {
   const [to, setTo] = React.useState(from);
   const [input, setInput] = React.useState({
     degree: "",
-    startDate: from,
-    endDate: to,
     institute: "",
   });
 
@@ -138,8 +136,7 @@ export const EducationForms = ({ close }) => {
   };
 
   const handleAdd = () => {
-    console.log(input);
-    dispatch(addNewDegree(input));
+    dispatch(addNewDegree(input, from, to));
 
     close();
   };
@@ -162,7 +159,7 @@ export const EducationForms = ({ close }) => {
       <DesktopDatePicker
         label="Start Date"
         value={from}
-        minDate={new Date("2017-01-01")}
+        minDate={new Date("1980-01-01")}
         onChange={(newValue) => {
           setFrom(newValue);
         }}

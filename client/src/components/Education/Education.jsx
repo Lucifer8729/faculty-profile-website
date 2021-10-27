@@ -5,13 +5,19 @@ import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 
 import classes from "./Education.module.css";
 
+import { useSelector, useDispatch } from "react-redux";
+import { deleteDegree } from "../../redux/profile/profile.actions";
+
 const Education = (props) => {
+  const education = useSelector((state) => state.profileReducer.Education);
+  const dispatch = useDispatch();
+
   const handleClick = () => {
-    console.log(props.id);
+    dispatch(deleteDegree(props.id, education));
   };
 
   return (
-    <Box className={classes.box}>
+    <Box className={classes.box} sx={{ position: "relative" }}>
       <IconButton
         size="small"
         sx={{

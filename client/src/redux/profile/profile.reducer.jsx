@@ -30,6 +30,7 @@ const INITIAL_STATE = {
 };
 
 const profileReducer = (state = INITIAL_STATE, action) => {
+  console.log(action);
   switch (action.type) {
     case types.EDIT_ABOUT_ME:
       return {
@@ -41,6 +42,12 @@ const profileReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         Education: [action.payload, ...state.Education],
+      };
+
+    case types.DELETE_DEGREE:
+      return {
+        ...state,
+        Education: [...action.payload.newList],
       };
 
     default:

@@ -10,3 +10,8 @@ export const addNewDegree = (...args) => ({
   type: types.ADD_NEW_DEGREE,
   payload: utils.addNewDegree(...args),
 });
+
+export const deleteDegree = (...args) => ({
+  type: types.DELETE_DEGREE,
+  payload: utils.deleteDegree(...args),
+});

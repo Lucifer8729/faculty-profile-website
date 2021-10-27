@@ -8,43 +8,209 @@ import * as utils from "../../components/UI/utils";
 
 const teachingColumns = [
   {
-    field: "id",
-    headerName: "ID",
-    width: 70,
+    field: "designation",
+    headerName: "Designation",
+    width: 300,
     headerClassName: "super-app-theme--header",
-    headerAlign: "center",
-  },
-  { field: "firstName", headerName: "First name", width: 130 },
-  { field: "lastName", headerName: "Last name", width: 130 },
-  {
-    field: "age",
-    headerName: "Age",
-    type: "number",
-    width: 90,
-  },
-  {
-    field: "fullName",
-    headerName: "Full name",
-    description: "This column has a value getter and is not sortable.",
     sortable: false,
-    width: 160,
-    valueGetter: (params) =>
-      `${params.getValue(params.id, "firstName") || ""} ${
-        params.getValue(params.id, "lastName") || ""
-      }`,
+  },
+  {
+    field: "from",
+    headerName: "From",
+    width: 200,
+    sortable: false,
+  },
+  {
+    field: "to",
+    headerName: "To",
+    width: 200,
+    sortable: false,
+  },
+  {
+    field: "programs",
+    headerName: "Programs taught - UG/PG",
+    sortable: false,
+    width: 300,
   },
 ];
 
 const teachingRows = [
-  { id: 1, lastName: "Snow", firstName: "Jon", age: 35 },
-  { id: 2, lastName: "Lannister", firstName: "Cersei", age: 42 },
-  { id: 3, lastName: "Lannister", firstName: "Jaime", age: 45 },
-  { id: 4, lastName: "Stark", firstName: "Arya", age: 16 },
-  { id: 5, lastName: "Targaryen", firstName: "Daenerys", age: null },
-  { id: 6, lastName: "Melisandre", firstName: null, age: 150 },
-  { id: 7, lastName: "Clifford", firstName: "Ferrara", age: 44 },
-  { id: 8, lastName: "Frances", firstName: "Rossini", age: 36 },
-  { id: 9, lastName: "Roxie", firstName: "Harvey", age: 65 },
+  {
+    id: 1,
+    designation: "Assisstant Professor(S.G)",
+    from: "01.07.2017",
+    to: "Till Date",
+    programs: "UG",
+  },
+  {
+    id: 2,
+    designation: "Assisstant Professor(S.G)",
+    from: "01.07.2017",
+    to: "Till Date",
+    programs: "UG",
+  },
+  {
+    id: 3,
+    designation: "Assisstant Professor(S.G)",
+    from: "01.07.2017",
+    to: "Till Date",
+    programs: "UG",
+  },
+  {
+    id: 4,
+    designation: "Assisstant Professor(S.G)",
+    from: "01.07.2017",
+    to: "Till Date",
+    programs: "UG",
+  },
+  {
+    id: 5,
+    designation: "Assisstant Professor(S.G)",
+    from: "01.07.2017",
+    to: "Till Date",
+    programs: "UG",
+  },
+  {
+    id: 6,
+    designation: "Assisstant Professor(S.G)",
+    from: "01.07.2017",
+    to: "Till Date",
+    programs: "UG",
+  },
+];
+
+const workshopColumns = [
+  {
+    field: "id",
+    headerName: "ID",
+    width: 50,
+    headerClassName: "super-app-theme--header",
+    sortable: false,
+  },
+  {
+    field: "status",
+    headerName: "Status as Organizer",
+    width: 170,
+    sortable: false,
+  },
+  {
+    field: "title",
+    headerName: "Title of the Conference/Seminar",
+    width: 600,
+    sortable: false,
+  },
+  {
+    field: "date",
+    headerName: "Date",
+    width: 200,
+    sortable: false,
+  },
+];
+
+const workshopRows = [
+  {
+    id: 1,
+    status: "Co-ordinator",
+    title: "2 days Webinar on Serverless Technology with Hands-On Session",
+    date: "06/07/2020 - 07/07/2020",
+  },
+  {
+    id: 2,
+    status: "Co-ordinator",
+    title: "2 days Webinar on Serverless Technology with Hands-On Session",
+    date: "06/07/2020 - 07/07/2020",
+  },
+  {
+    id: 3,
+    status: "Co-ordinator",
+    title: "2 days Webinar on Serverless Technology with Hands-On Session",
+    date: "06/07/2020 - 07/07/2020",
+  },
+  {
+    id: 4,
+    status: "Co-ordinator",
+    title: "2 days Webinar on Serverless Technology with Hands-On Session",
+    date: "06/07/2020 - 07/07/2020",
+  },
+  {
+    id: 5,
+    status: "Co-ordinator",
+    title: "2 days Webinar on Serverless Technology with Hands-On Session",
+    date: "06/07/2020 - 07/07/2020",
+  },
+  {
+    id: 6,
+    status: "Co-ordinator",
+    title: "2 days Webinar on Serverless Technology with Hands-On Session",
+    date: "06/07/2020 - 07/07/2020",
+  },
+];
+
+const awardColumns = [
+  {
+    field: "name",
+    headerName: "Name of Programme/ Award",
+    width: 220,
+    headerClassName: "super-app-theme--header",
+    //headerAlign: "center",
+    sortable: false,
+  },
+  {
+    field: "institute",
+    headerName: "Name of Institute",
+    width: 170,
+    sortable: false,
+  },
+  {
+    field: "period",
+    headerName: "Period/ Year of Award",
+    width: 200,
+    sortable: false,
+  },
+  {
+    field: "description",
+    headerName: "Responsibility/ Cash Prize/ Medal/ Certificate",
+    width: 400,
+    sortable: false,
+  },
+];
+
+const awardRows = [
+  {
+    id: 1,
+    name: "Research Day",
+    institute: "SRM University",
+    period: "28/02/2017",
+    description: "IOT based smart car parking",
+  },
+  {
+    id: 2,
+    name: "Research Day",
+    institute: "SRM University",
+    period: "28/02/2017",
+    description: "IOT based smart car parking",
+  },
+  {
+    id: 3,
+    name: "Research Day",
+    institute: "SRM University",
+    period: "28/02/2017",
+    description: "IOT based smart car parking",
+  },
+  {
+    id: 4,
+    name: "Research Day",
+    institute: "SRM University",
+    period: "28/02/2017",
+    description: "IOT based smart car parking",
+  },
+  {
+    id: 5,
+    name: "100% Result",
+    institute: "SRM University",
+    period: "2006-2007",
+    description: "Certificate",
+  },
 ];
 
 const ExperiencePage = () => {
@@ -76,7 +242,7 @@ const ExperiencePage = () => {
         alignItems="center"
         spacing={5}
         sx={{
-          width: "70%",
+          width: "75%",
           marginLeft: "auto",
           marginRight: "auto",
         }}
@@ -117,6 +283,7 @@ const ExperiencePage = () => {
       </Grid>
       {expActiveTab.tab1 === "1" && (
         <DataGrid
+          disableColumnMenu
           style={{
             marginTop: "2%",
             width: "70%",
@@ -128,8 +295,41 @@ const ExperiencePage = () => {
           }}
           rows={teachingRows}
           columns={teachingColumns}
-          pageSize={5}
-          rowsPerPageOptions={[5]}
+          pageSize={10}
+        />
+      )}
+      {expActiveTab.tab2 === "1" && (
+        <DataGrid
+          disableColumnMenu
+          style={{
+            marginTop: "2%",
+            width: "70%",
+            height: "60vh",
+            marginLeft: "auto",
+            marginRight: "auto",
+            backgroundColor: "#0080ff",
+            color: "#ffffff",
+          }}
+          rows={workshopRows}
+          columns={workshopColumns}
+          pageSize={10}
+        />
+      )}
+      {expActiveTab.tab3 === "1" && (
+        <DataGrid
+          disableColumnMenu
+          style={{
+            marginTop: "2%",
+            width: "70%",
+            height: "60vh",
+            marginLeft: "auto",
+            marginRight: "auto",
+            backgroundColor: "#0080ff",
+            color: "#ffffff",
+          }}
+          rows={awardRows}
+          columns={awardColumns}
+          pageSize={10}
         />
       )}
     </Box>

@@ -6,15 +6,28 @@ import {
   CardActions,
   CardContent,
   Link,
+  Grid,
+  IconButton,
   Typography,
 } from "@mui/material";
 import DateRangeIcon from "@mui/icons-material/DateRange";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import DownloadIcon from "@mui/icons-material/Download";
 import ArrowRightAltSharpIcon from "@mui/icons-material/ArrowRightAltSharp";
+import DeleteIcon from "@mui/icons-material/Delete";
+
+import { useSelector, useDispatch } from "react-redux";
+import { deletePatent } from "../../redux/patent/patent.actions";
 
 const PatentCard = (props) => {
-  const { title, date, location, viewLink } = props;
+  const { title, date, location, viewLink, id } = props;
+  const patentList = useSelector((state) => state.patentReducer.PatentList);
+  const dispatch = useDispatch();
+
+  const handleDelete = () => {
+    dispatch(deletePatent(id, patentList));
+  };
+
   return (
     <Card raised sx={{ p: 2 }}>
       <CardContent>
@@ -49,34 +62,48 @@ const PatentCard = (props) => {
         </Typography>
       </CardContent>
       <CardActions sx={{ justifyContent: "right" }}>
-        <Link
-          href={viewLink}
-          underline="none"
-          sx={{
-            mr: 2,
-            verticalAlign: "middle",
-            display: "inline-flex",
-            color: "#3ABCFF",
-            "&: hover": {
-              color: "#0080FF",
-            },
-          }}
+        <Grid
+          container
+          direction="row"
+          justifyContent="space-between"
+          alignItems="center"
         >
-          VIEW ONLINE
-          <ArrowRightAltSharpIcon />
-        </Link>
-        <Button
-          sx={{
-            bgcolor: "#3ABCFF",
-            "&: hover": {
-              bgcolor: "#0080FF",
-            },
-          }}
-          variant="contained"
-          endIcon={<DownloadIcon />}
-        >
-          download
-        </Button>
+          <Grid item>
+            <IconButton onClick={handleDelete}>
+              <DeleteIcon />
+            </IconButton>
+          </Grid>
+          <Grid item>
+            <Link
+              href={viewLink}
+              underline="none"
+              sx={{
+                mr: 2,
+                verticalAlign: "middle",
+                display: "inline-flex",
+                color: "#3ABCFF",
+                "&: hover": {
+                  color: "#0080FF",
+                },
+              }}
+            >
+              VIEW ONLINE
+              <ArrowRightAltSharpIcon />
+            </Link>
+            <Button
+              sx={{
+                bgcolor: "#3ABCFF",
+                "&: hover": {
+                  bgcolor: "#0080FF",
+                },
+              }}
+              variant="contained"
+              endIcon={<DownloadIcon />}
+            >
+              download
+            </Button>
+          </Grid>
+        </Grid>
       </CardActions>
     </Card>
   );

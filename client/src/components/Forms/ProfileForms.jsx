@@ -6,6 +6,9 @@ import { Button, Typography } from "@mui/material";
 import DesktopDatePicker from "@mui/lab/DesktopDatePicker";
 import AddIcon from "@mui/icons-material/Add";
 
+import { useDispatch, useSelector } from "react-redux";
+import { editAboutMe } from "../../redux/profile/profile.actions";
+
 const style = {
   position: "absolute",
   top: "50%",
@@ -20,6 +23,48 @@ const style = {
 };
 
 export const AboutForms = ({ close }) => {
+  const dispatch = useDispatch();
+  const aboutMe = useSelector((state) => state.profileReducer.AboutMe);
+  const [input, setInput] = React.useState({
+    header: aboutMe.header,
+    quote: aboutMe.quote,
+    detail: aboutMe.detail,
+  });
+
+  const handleHeaderChange = (e) => {
+    const value = e.target.value;
+    setInput((prevValue) => {
+      return {
+        ...prevValue,
+        header: value,
+      };
+    });
+  };
+  const handleQuoteChange = (e) => {
+    const value = e.target.value;
+    setInput((prevValue) => {
+      return {
+        ...prevValue,
+        quote: value,
+      };
+    });
+  };
+  const handleDetailChange = (e) => {
+    const value = e.target.value;
+    setInput((prevValue) => {
+      return {
+        ...prevValue,
+        detail: value,
+      };
+    });
+  };
+
+  const handleSave = () => {
+    dispatch(editAboutMe(input));
+
+    close();
+  };
+
   return (
     <Box sx={style}>
       <Typography variant="h5" sx={{ mb: 2 }}>
@@ -31,6 +76,8 @@ export const AboutForms = ({ close }) => {
         multiline
         rows={2}
         sx={{ width: 600, mb: 2 }}
+        onChange={handleHeaderChange}
+        value={input.header}
       />
       <br />
       <TextField
@@ -39,6 +86,8 @@ export const AboutForms = ({ close }) => {
         multiline
         rows={1}
         sx={{ width: 600, mb: 2 }}
+        onChange={handleQuoteChange}
+        value={input.quote}
       />
       <br />
       <TextField
@@ -47,9 +96,11 @@ export const AboutForms = ({ close }) => {
         multiline
         rows={4}
         sx={{ width: 600, mb: 3 }}
+        onChange={handleDetailChange}
+        value={input.detail}
       />
       <br />
-      <Button variant="contained" onClick={close}>
+      <Button variant="contained" onClick={handleSave}>
         save
       </Button>
     </Box>

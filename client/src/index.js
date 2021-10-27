@@ -8,13 +8,18 @@ import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import "./index.css";
 import App from "./App";
 
+import { Provider } from "react-redux";
+import ReduxStore from "./redux/store";
+
 ReactDOM.render(
   <React.StrictMode>
-    <LocalizationProvider dateAdapter={AdapterDateFns}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </LocalizationProvider>
+    <Provider store={ReduxStore()}>
+      <LocalizationProvider dateAdapter={AdapterDateFns}>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </LocalizationProvider>
+    </Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );

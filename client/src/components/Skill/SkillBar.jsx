@@ -23,8 +23,8 @@ const SkillBar = ({ skill, percent }) => {
           size="small"
           sx={{
             position: "absolute",
-            transform: "translate(-80%, 40%)",
-            color: "red",
+            transform: "translate(-90%, 40%)",
+            color: "#747474",
           }}
           onClick={handleClick}
         >

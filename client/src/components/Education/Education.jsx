@@ -17,7 +17,7 @@ const Education = (props) => {
         sx={{
           position: "absolute",
           transform: "translate(-90%, -10%)",
-          color: "red",
+          color: "#747474",
         }}
         onClick={handleClick}
       >

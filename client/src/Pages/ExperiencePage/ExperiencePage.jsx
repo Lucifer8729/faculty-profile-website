@@ -6,7 +6,7 @@ import ProfileButton from "../../components/UI/Button";
 
 import * as utils from "../../components/UI/utils";
 
-const columns = [
+const teachingColumns = [
   {
     field: "id",
     headerName: "ID",
@@ -35,7 +35,7 @@ const columns = [
   },
 ];
 
-const rows = [
+const teachingRows = [
   { id: 1, lastName: "Snow", firstName: "Jon", age: 35 },
   { id: 2, lastName: "Lannister", firstName: "Cersei", age: 42 },
   { id: 3, lastName: "Lannister", firstName: "Jaime", age: 45 },
@@ -126,8 +126,8 @@ const ExperiencePage = () => {
             backgroundColor: "#0080ff",
             color: "#ffffff",
           }}
-          rows={rows}
-          columns={columns}
+          rows={teachingRows}
+          columns={teachingColumns}
           pageSize={5}
           rowsPerPageOptions={[5]}
         />

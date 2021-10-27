@@ -7,7 +7,11 @@ import DesktopDatePicker from "@mui/lab/DesktopDatePicker";
 import AddIcon from "@mui/icons-material/Add";
 
 import { useDispatch, useSelector } from "react-redux";
-import { editAboutMe, addNewDegree } from "../../redux/profile/profile.actions";
+import {
+  editAboutMe,
+  addNewDegree,
+  addNewSkill,
+} from "../../redux/profile/profile.actions";
 
 const style = {
   position: "absolute",
@@ -207,6 +211,37 @@ export const EducationForms = ({ close }) => {
 };
 
 export const SkillForms = ({ close }) => {
+  const dispatch = useDispatch();
+  // const skills = useSelector((state) => state.profileReducer.Skills);
+  const [input, setInput] = React.useState({
+    skill: "",
+    rating: "",
+  });
+
+  const handleSkillChange = (e) => {
+    const value = e.target.value;
+    setInput((prevValue) => {
+      return {
+        ...prevValue,
+        skill: value,
+      };
+    });
+  };
+  const handleRateChange = (e) => {
+    const value = e.target.value;
+    setInput((prevValue) => {
+      return {
+        ...prevValue,
+        rating: value,
+      };
+    });
+  };
+
+  const handleSave = () => {
+    dispatch(addNewSkill(input));
+
+    close();
+  };
   return (
     <Box sx={style}>
       <Typography variant="h5" sx={{ mb: 2 }}>
@@ -218,6 +253,8 @@ export const SkillForms = ({ close }) => {
         multiline
         rows={1}
         sx={{ width: 600, mb: 2 }}
+        onChange={handleSkillChange}
+        value={input.skill}
       />
       <br />
       <TextField
@@ -225,9 +262,11 @@ export const SkillForms = ({ close }) => {
         label="Rate it on 0-100"
         type="number"
         sx={{ width: 600, mb: 3 }}
+        onChange={handleRateChange}
+        value={input.rating}
       />
       <br />
-      <Button variant="contained" startIcon={<AddIcon />} onClick={close}>
+      <Button variant="contained" startIcon={<AddIcon />} onClick={handleSave}>
         add
       </Button>
     </Box>

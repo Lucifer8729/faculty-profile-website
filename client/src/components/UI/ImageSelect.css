@@ -1,0 +1,49 @@
+.image-select-course-img {
+  width: 64px;
+  height: auto;
+  margin-right: -9px;
+  transform: translate(0%, 20%) rotate(12deg);
+  opacity: 0.4;
+}
+
+.image-select-B {
+  border: 1px solid #0080ff;
+}
+.image-select-B:hover {
+  border: 1px solid blue;
+}
+
+.image-select-active {
+  border: 1px solid green;
+}
+.image-select-active:hover {
+  border: 1px solid green;
+}
+
+.image-select-0Tactive {
+  color: white;
+  position: absolute;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 20px 20px;
+  border-color: transparent transparent transparent green;
+  left: 0;
+  top: 0;
+}
+
+.image-select-0T-M {
+  position: absolute;
+  left: 0;
+  font-size: smaller;
+  opacity: 0;
+}
+
+.image-select-0T-Mactive {
+  color: white;
+  position: absolute;
+  left: 0;
+  font-size: smaller;
+  opacity: 1;
+}

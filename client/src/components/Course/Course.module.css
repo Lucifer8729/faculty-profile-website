@@ -9,7 +9,7 @@
   right: -7%;
   bottom: -10%;
   transform: rotate(12deg);
-  opacity: 0.8;
-  filter: invert(83%) sepia(120%) saturate(100%) hue-rotate(100deg)
-    brightness(112%) contrast(101%);
+  opacity: 0.4;
+  /* filter: invert(83%) sepia(120%) saturate(100%) hue-rotate(100deg)
+    brightness(112%) contrast(101%); */
 }

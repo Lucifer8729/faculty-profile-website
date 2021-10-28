@@ -25,6 +25,7 @@ const Course = (props) => {
         borderRadius: "10px",
         backgroundColor: "#0080ff",
         color: "#fff",
+        // height: 220,
       }}
       className={classes.card}
     >
@@ -41,7 +42,7 @@ const Course = (props) => {
               pt: 0.5,
               pb: 0.5,
               mt: 12,
-              borderRadius: "10px",
+              // borderRadius: "10px",
               "&: hover": { bgcolor: "#ffffff" },
             }}
             href={`/coursepage/${id}`}

@@ -51,6 +51,7 @@ export const AddNewCourseForm = ({ close }) => {
 
   const handleSave = () => {
     // dispatch(addNewPatent(input, from));
+    console.log(input);
 
     close();
   };

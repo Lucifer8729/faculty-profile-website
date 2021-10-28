@@ -6,19 +6,21 @@ import CheckIcon from "@mui/icons-material/Check";
 
 import "./ImageSelect.css";
 
-const ImageSelect = ({ imageList, width }) => {
+const ImageSelect = ({ imageList, width, getImage }) => {
   const [active, setActive] = React.useState(Array(imageList.length));
 
-  const handleClick = (i) => {
+  const handleClick = (index) => {
     const newArray = new Array(imageList.length);
     setActive(() => {
       for (let i = 0; i < imageList.length; ++i) {
         newArray[i] = 0;
       }
-      newArray[i] = "active";
-      console.log(newArray);
+      newArray[index] = "active";
+
       return newArray;
     });
+
+    getImage(imageList[index]);
   };
   return (
     <Grid container sx={{ width: width }} spacing={1}>

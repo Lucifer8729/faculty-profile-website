@@ -25,6 +25,12 @@ const courseReducer = (state = INITIAL_STATE, action) => {
         CourseList: [...action.payload.newList],
       };
 
+    case types.EDIT_COURSE:
+      return {
+        ...state,
+        CourseList: [...action.payload.newList],
+      };
+
     default:
       return state;
   }

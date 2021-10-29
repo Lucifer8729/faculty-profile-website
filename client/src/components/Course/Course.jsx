@@ -8,12 +8,17 @@ import {
   IconButton,
   Menu,
   MenuItem,
+  Modal,
   ListItemIcon,
   ListItemText,
 } from "@mui/material";
+import { Box } from "@mui/system";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import DeleteIcon from "@mui/icons-material/Delete";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
+import EditIcon from "@mui/icons-material/Edit";
+
+import { EditCourseForm } from "../Forms/CourseForms";
 
 import classes from "./Course.module.css";
 
@@ -35,11 +40,21 @@ const Course = (props) => {
   const dispatch = useDispatch();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
+
+  const [modalOpen, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleCloseModal = () => setOpen(false);
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const handleEdit = () => {
+    handleOpen();
+    handleClose();
   };
 
   const handleDelete = () => {
@@ -85,6 +100,13 @@ const Course = (props) => {
             horizontal: "right",
           }}
         >
+          <MenuItem onClick={handleEdit}>
+            <ListItemIcon>
+              <EditIcon fontSize="small" />
+            </ListItemIcon>
+            <ListItemText>edit</ListItemText>
+          </MenuItem>
+
           <MenuItem onClick={handleDelete}>
             <ListItemIcon>
               <DeleteIcon fontSize="small" />
@@ -92,6 +114,15 @@ const Course = (props) => {
             <ListItemText>delete</ListItemText>
           </MenuItem>
         </Menu>
+        <Modal open={modalOpen} onClose={handleCloseModal}>
+          <Box>
+            <EditCourseForm
+              close={handleCloseModal}
+              idx={idx}
+              currTitle={title}
+            />
+          </Box>
+        </Modal>
 
         <Typography
           variant="h5"

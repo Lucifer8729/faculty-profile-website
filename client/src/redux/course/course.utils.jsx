@@ -17,3 +17,12 @@ export const deleteCourse = (index, array) => {
     newList: array,
   };
 };
+
+export const editCourse = (input, index, array) => {
+  if (input.courseName) array[index].title = input.courseName;
+  if (input.image) array[index].img = input.image;
+
+  return {
+    newList: array,
+  };
+};

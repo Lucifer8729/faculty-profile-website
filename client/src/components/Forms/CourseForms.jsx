@@ -5,8 +5,8 @@ import Box from "@mui/material/Box";
 import { Button, Typography } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 
-import { useDispatch } from "react-redux";
-import { addNewCourse } from "../../redux/course/course.actions";
+import { useDispatch, useSelector } from "react-redux";
+import { addNewCourse, editCourse } from "../../redux/course/course.actions";
 
 import ImageSelect from "../UI/ImageSelect";
 import jsImg from "../../assets/js.svg";
@@ -83,6 +83,67 @@ export const AddNewCourseForm = ({ close }) => {
       <br />
       <Button variant="contained" startIcon={<AddIcon />} onClick={handleSave}>
         add
+      </Button>
+    </Box>
+  );
+};
+
+export const EditCourseForm = ({ close, idx, currTitle }) => {
+  const dispatch = useDispatch();
+  const courses = useSelector((state) => state.courseReducer.CourseList);
+  const [input, setInput] = React.useState({
+    courseName: currTitle,
+    image: "",
+  });
+
+  const handleCourseNameChange = (e) => {
+    const value = e.target.value;
+    setInput((prevValue) => {
+      return {
+        ...prevValue,
+        courseName: value,
+      };
+    });
+  };
+  const handleImageChange = (value) => {
+    setInput((prevValue) => {
+      return {
+        ...prevValue,
+        image: value,
+      };
+    });
+  };
+
+  const handleSave = () => {
+    dispatch(editCourse(input, idx, courses));
+
+    close();
+  };
+
+  return (
+    <Box sx={style}>
+      <Typography variant="subtitle" sx={{ mb: 2 }}>
+        Change Course Title :
+      </Typography>
+      <br />
+      <TextField
+        id="outlined-multiline-static"
+        label="New Title"
+        multiline
+        rows={1}
+        sx={{ width: 600, mt: 2, mb: 3 }}
+        onChange={handleCourseNameChange}
+        value={input.courseName}
+      />
+      <br />
+      <ImageSelect
+        imageList={[cppImg, javaImg, jsImg, pythonImg, reactImg, visualImg]}
+        width={600}
+        getImage={handleImageChange}
+      />
+      <br />
+      <Button variant="contained" onClick={handleSave}>
+        save
       </Button>
     </Box>
   );

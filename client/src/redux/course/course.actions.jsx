@@ -10,3 +10,8 @@ export const deleteCourse = (...args) => ({
   type: types.DELETE_COURSE,
   payload: utils.deleteCourse(...args),
 });
+
+export const editCourse = (...args) => ({
+  type: types.EDIT_COURSE,
+  payload: utils.editCourse(...args),
+});

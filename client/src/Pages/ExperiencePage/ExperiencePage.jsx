@@ -253,7 +253,7 @@ const ExperiencePage = () => {
               setExpActiveTab({ tab1: "1", tab2: "", tab3: "" });
             }}
             value={expActiveTab.tab1}
-            className="button-click"
+            className="experience-button-click"
           >
             Teaching
           </ProfileButton>
@@ -264,7 +264,7 @@ const ExperiencePage = () => {
               setExpActiveTab({ tab1: "", tab2: "1", tab3: "" });
             }}
             value={expActiveTab.tab2}
-            className="button-click"
+            className="experience-button-click"
           >
             Workshops
           </ProfileButton>
@@ -275,7 +275,7 @@ const ExperiencePage = () => {
               setExpActiveTab({ tab1: "", tab2: "", tab3: "1" });
             }}
             value={expActiveTab.tab3}
-            className="button-click"
+            className="experience-button-click"
           >
             Awards
           </ProfileButton>

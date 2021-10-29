@@ -22,7 +22,8 @@
   background-color: #ffffff;
 }
 
-.button-click {
+.button-click,
+.experience-button-click {
   border-radius: 5px;
   padding: 5px 14px;
   width: 8rem;
@@ -32,6 +33,10 @@
   font-size: 1.2em;
   color: #ffffff;
   background-color: #3abcff;
+}
+
+.experience-button-click {
+  margin-top: 8%;
 }
 
 .button:hover {
@@ -45,5 +50,5 @@
   border-right: 8px solid transparent;
   border-top: 10px solid #3abcff;
   margin-left: 40%;
-  margin-top: -1%;
+  /* margin-top: 1%; */
 }

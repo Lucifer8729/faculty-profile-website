@@ -3,94 +3,15 @@ import { Grid, Card, CardContent, IconButton, Modal } from "@mui/material";
 import { Box } from "@mui/system";
 import AddIcon from "@mui/icons-material/Add";
 
-import jsImg from "../../assets/js.svg";
 import Course from "../../components/Course/Course";
 
 import * as utils from "../../components/UI/utils";
 
 import { AddNewCourseForm } from "../../components/Forms/CourseForms";
-
-const courses = [
-  {
-    id: "1",
-    title: "Programming In Javascript",
-    units: "5",
-    materials: "2",
-    img: jsImg,
-  },
-  {
-    id: "2",
-    title: "Programming In Javascript",
-    units: "5",
-    materials: "2",
-    img: jsImg,
-  },
-  {
-    id: "3",
-    title: "Programming In Javascript",
-    units: "5",
-    materials: "2",
-    img: jsImg,
-  },
-  {
-    id: "4",
-    title: "Programming In Javascript",
-    units: "5",
-    materials: "2",
-    img: jsImg,
-  },
-  {
-    id: "5",
-    title: "Programming In Javascript",
-    units: "5",
-    materials: "2",
-    img: jsImg,
-  },
-  {
-    id: "6",
-    title: "Programming In Javascript",
-    units: "5",
-    materials: "2",
-    img: jsImg,
-  },
-  {
-    id: "7",
-    title: "Programming In Javascript",
-    units: "5",
-    materials: "2",
-    img: jsImg,
-  },
-  {
-    id: "8",
-    title: "Programming In Javascript",
-    units: "5",
-    materials: "2",
-    img: jsImg,
-  },
-  {
-    id: "9",
-    title: "Programming In Javascript",
-    units: "5",
-    materials: "2",
-    img: jsImg,
-  },
-  {
-    id: "10",
-    title: "Programming In Javascript",
-    units: "5",
-    materials: "2",
-    img: jsImg,
-  },
-  {
-    id: "11",
-    title: "Programming In Javascript",
-    units: "5",
-    materials: "2",
-    img: jsImg,
-  },
-];
+import { useSelector } from "react-redux";
 
 const CoursePage = () => {
+  const courses = useSelector((state) => state.courseReducer.CourseList);
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -161,7 +82,7 @@ const CoursePage = () => {
           </Grid>
           {courses.map((course, i) => (
             <Grid item key={i} xs={12} md={6} lg={3}>
-              <Course {...course} />
+              <Course idx={i} {...course} />
             </Grid>
           ))}
         </Grid>

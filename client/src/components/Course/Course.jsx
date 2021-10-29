@@ -1,9 +1,24 @@
-import { Button, Card, CardContent, Typography } from "@mui/material";
-
-import { createTheme, ThemeProvider } from "@mui/material/styles";
 import React from "react";
 
+import {
+  Button,
+  Card,
+  CardContent,
+  Typography,
+  IconButton,
+  Menu,
+  MenuItem,
+  ListItemIcon,
+  ListItemText,
+} from "@mui/material";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import DeleteIcon from "@mui/icons-material/Delete";
+import MoreVertIcon from "@mui/icons-material/MoreVert";
+
 import classes from "./Course.module.css";
+
+import { useSelector, useDispatch } from "react-redux";
+import { deleteCourse } from "../../redux/course/course.actions";
 
 const theme = createTheme({
   palette: {
@@ -15,7 +30,23 @@ const theme = createTheme({
 });
 
 const Course = (props) => {
-  const { id, title, units, materials, img } = props;
+  const { id, idx, title, units, materials, img } = props;
+  const courses = useSelector((state) => state.courseReducer.CourseList);
+  const dispatch = useDispatch();
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handleDelete = () => {
+    dispatch(deleteCourse(idx, courses));
+
+    handleClose();
+  };
 
   return (
     <Card
@@ -25,12 +56,47 @@ const Course = (props) => {
         borderRadius: "10px",
         backgroundColor: "#0080ff",
         color: "#fff",
-        // height: 220,
+        height: 220,
       }}
       className={classes.card}
     >
       <CardContent>
-        <Typography variant="h5" sx={{ fontWeight: "bold", mb: "1" }}>
+        <IconButton
+          id="long-button"
+          sx={{ position: "absolute", right: 5, color: "white" }}
+          onClick={handleClick}
+        >
+          <MoreVertIcon />
+        </IconButton>
+        <Menu
+          id="basic-menu"
+          anchorEl={anchorEl}
+          open={open}
+          onClose={handleClose}
+          MenuListProps={{
+            "aria-labelledby": "basic-button",
+          }}
+          anchorOrigin={{
+            vertical: "top",
+            horizontal: "right",
+          }}
+          transformOrigin={{
+            vertical: "top",
+            horizontal: "right",
+          }}
+        >
+          <MenuItem onClick={handleDelete}>
+            <ListItemIcon>
+              <DeleteIcon fontSize="small" />
+            </ListItemIcon>
+            <ListItemText>delete</ListItemText>
+          </MenuItem>
+        </Menu>
+
+        <Typography
+          variant="h5"
+          sx={{ fontWeight: "bold", mb: "1", width: "90%" }}
+        >
           {title}
         </Typography>
         <Typography variant="caption">{`${units} units  |  ${materials} materials`}</Typography>
@@ -41,8 +107,8 @@ const Course = (props) => {
             sx={{
               pt: 0.5,
               pb: 0.5,
-              mt: 12,
-              // borderRadius: "10px",
+              position: "absolute",
+              bottom: 18,
               "&: hover": { bgcolor: "#ffffff" },
             }}
             href={`/coursepage/${id}`}

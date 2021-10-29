@@ -5,11 +5,16 @@ import Box from "@mui/material/Box";
 import { Button, Typography } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 
-// import { useDispatch } from "react-redux";
-// import { addNewPatent } from "../../redux/patent/patent.actions";
+import { useDispatch } from "react-redux";
+import { addNewCourse } from "../../redux/course/course.actions";
 
 import ImageSelect from "../UI/ImageSelect";
 import jsImg from "../../assets/js.svg";
+import cppImg from "../../assets/cpp.svg";
+import javaImg from "../../assets/java.svg";
+import pythonImg from "../../assets/python.svg";
+import reactImg from "../../assets/react.svg";
+import visualImg from "../../assets/visual.svg";
 
 const style = {
   position: "absolute",
@@ -25,7 +30,7 @@ const style = {
 };
 
 export const AddNewCourseForm = ({ close }) => {
-  //   const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const [input, setInput] = React.useState({
     courseName: "",
     image: "",
@@ -50,8 +55,7 @@ export const AddNewCourseForm = ({ close }) => {
   };
 
   const handleSave = () => {
-    // dispatch(addNewPatent(input, from));
-    console.log(input);
+    dispatch(addNewCourse(input));
 
     close();
   };
@@ -72,7 +76,7 @@ export const AddNewCourseForm = ({ close }) => {
       />
       <br />
       <ImageSelect
-        imageList={[jsImg, jsImg, jsImg, jsImg, jsImg]}
+        imageList={[cppImg, javaImg, jsImg, pythonImg, reactImg, visualImg]}
         width={600}
         getImage={handleImageChange}
       />

@@ -67,7 +67,7 @@ const PatentPage = () => {
               <PatentForms close={handleClose} />
             </Box>
           </Modal>
-          <Box sx={{ height: "75vh", overflowY: "auto", pr: 2, pl: 2, pb: 2 }}>
+          <Box sx={{ height: "73vh", overflowY: "auto", pr: 2, pl: 2, pb: 2 }}>
             <Grid container spacing={2}>
               {patentList.map((publication, i) => (
                 <Grid item sm={12} md={6} key={i}>

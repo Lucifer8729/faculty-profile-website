@@ -38,6 +38,7 @@ const PatentPage = () => {
       <Grid container mt={20} direction="row" justifyContent="center">
         <Grid item xs={6} md={2} mr={4} mb={7}>
           <PatentFilter
+            patentList={patentList}
             filteredList={filteredList}
             setFilteredList={setFilteredList}
           />
@@ -50,7 +51,7 @@ const PatentPage = () => {
             mb={1}
             sx={{ fontWeight: "bold" }}
           >
-            Lorem ipsum dolor sit amet {`(${patentList.length})`}
+            Lorem ipsum dolor sit amet {`(${filteredList.length})`}
           </Typography>
           <Button
             variant="contained"

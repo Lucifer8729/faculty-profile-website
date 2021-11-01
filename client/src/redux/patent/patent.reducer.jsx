@@ -6,6 +6,28 @@ const INITIAL_STATE = {
       title:
         "An Intelligent System for Appraisal of Heart Infirmity to Rescue Future Generation",
       date: "October 2021",
+      month: 9,
+      year: 2021,
+      location: "Springer, Singapore (Scopus Indexed)",
+      viewLink: "#",
+      downloadLink: "#",
+    },
+    {
+      title:
+        "An Intelligent System for Appraisal of Heart Infirmity to Rescue Future Generation",
+      date: "October 2021",
+      month: 9,
+      year: 2021,
+      location: "Springer, Singapore (Scopus Indexed)",
+      viewLink: "#",
+      downloadLink: "#",
+    },
+    {
+      title:
+        "An Intelligent System for Appraisal of Heart Infirmity to Rescue Future Generation",
+      date: "December 2020",
+      month: 11,
+      year: 2020,
       location: "Springer, Singapore (Scopus Indexed)",
       viewLink: "#",
       downloadLink: "#",
@@ -14,6 +36,8 @@ const INITIAL_STATE = {
       title:
         "An Intelligent System for Appraisal of Heart Infirmity to Rescue Future Generation",
       date: "February 2020",
+      month: 1,
+      year: 2020,
       location: "Springer, Singapore (Scopus Indexed)",
       viewLink: "#",
       downloadLink: "#",
@@ -21,23 +45,9 @@ const INITIAL_STATE = {
     {
       title:
         "An Intelligent System for Appraisal of Heart Infirmity to Rescue Future Generation",
-      date: "February 2020",
-      location: "Springer, Singapore (Scopus Indexed)",
-      viewLink: "#",
-      downloadLink: "#",
-    },
-    {
-      title:
-        "An Intelligent System for Appraisal of Heart Infirmity to Rescue Future Generation",
-      date: "February 2020",
-      location: "Springer, Singapore (Scopus Indexed)",
-      viewLink: "#",
-      downloadLink: "#",
-    },
-    {
-      title:
-        "An Intelligent System for Appraisal of Heart Infirmity to Rescue Future Generation",
-      date: "February 2020",
+      date: "February 2019",
+      month: 1,
+      year: 2019,
       location: "Springer, Singapore (Scopus Indexed)",
       viewLink: "#",
       downloadLink: "#",

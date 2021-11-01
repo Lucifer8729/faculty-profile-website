@@ -35,22 +35,22 @@ const CssTextField = styled(TextField)({
   },
 });
 
-const monthNames = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
+// const monthNames = [
+//   "January",
+//   "February",
+//   "March",
+//   "April",
+//   "May",
+//   "June",
+//   "July",
+//   "August",
+//   "September",
+//   "October",
+//   "November",
+//   "December",
+// ];
 
-const PatentFilter = ({ filteredList, setFilteredList }) => {
+const PatentFilter = ({ filteredList, setFilteredList, patentList }) => {
   const [from, setFrom] = React.useState(new Date());
   const [to, setTo] = React.useState(from);
   const [filter, setFilter] = React.useState({
@@ -59,6 +59,34 @@ const PatentFilter = ({ filteredList, setFilteredList }) => {
     toMonth: to.getMonth(),
     toYear: to.getFullYear(),
   });
+
+  const patentFilter = () => {
+    let filterList = [];
+    if (filter.toMonth < filter.fromMonth) {
+      for (let i = 0; i < patentList.length; i++) {
+        if (
+          patentList[i].month >= filter.toMonth &&
+          patentList[i].month <= filter.fromMonth &&
+          patentList[i].year >= filter.fromYear &&
+          patentList[i].year <= filter.toYear
+        ) {
+          filterList.push(patentList[i]);
+        }
+      }
+    } else {
+      for (let i = 0; i < patentList.length; i++) {
+        if (
+          patentList[i].month <= filter.toMonth &&
+          patentList[i].month >= filter.fromMonth &&
+          patentList[i].year >= filter.fromYear &&
+          patentList[i].year <= filter.toYear
+        ) {
+          filterList.push(patentList[i]);
+        }
+      }
+    }
+    return filterList;
+  };
 
   const handleFilterChange = () => {
     setFilter(() => {
@@ -70,15 +98,9 @@ const PatentFilter = ({ filteredList, setFilteredList }) => {
       };
     });
     setFilteredList(() => {
+      filteredList = patentFilter();
       console.log(filteredList, filter);
-      const filterList = filteredList.filter((patent) => {
-        return (
-          patent.date ===
-            `${monthNames[filter.fromMonth]} ${filter.fromYear}` ||
-          patent.date === `${monthNames[filter.toMonth]} ${filter.toYear}`
-        );
-      });
-      return filterList;
+      return filteredList;
     });
   };
 

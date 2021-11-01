@@ -19,6 +19,8 @@ export const addNewPatent = (input, date) => {
   return {
     title: input.title,
     date: timeInWords,
+    month: time.getMonth(),
+    year: time.getFullYear(),
     location: input.location,
     viewLink: input.viewLink,
     downloadLink: input.downloadLink,

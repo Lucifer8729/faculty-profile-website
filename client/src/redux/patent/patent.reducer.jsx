@@ -5,7 +5,7 @@ const INITIAL_STATE = {
     {
       title:
         "An Intelligent System for Appraisal of Heart Infirmity to Rescue Future Generation",
-      date: "February 2020",
+      date: "October 2021",
       location: "Springer, Singapore (Scopus Indexed)",
       viewLink: "#",
       downloadLink: "#",

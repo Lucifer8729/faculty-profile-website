@@ -35,9 +35,54 @@ const CssTextField = styled(TextField)({
   },
 });
 
-const PatentFilter = () => {
+const monthNames = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+
+const PatentFilter = ({ filteredList, setFilteredList }) => {
   const [from, setFrom] = React.useState(new Date());
   const [to, setTo] = React.useState(from);
+  const [filter, setFilter] = React.useState({
+    fromMonth: from.getMonth(),
+    fromYear: from.getFullYear(),
+    toMonth: to.getMonth(),
+    toYear: to.getFullYear(),
+  });
+
+  const handleFilterChange = () => {
+    setFilter(() => {
+      return {
+        fromMonth: from.getMonth(),
+        fromYear: from.getFullYear(),
+        toMonth: to.getMonth(),
+        toYear: to.getFullYear(),
+      };
+    });
+    setFilteredList(() => {
+      console.log(filteredList, filter);
+      const filterList = filteredList.filter((patent) => {
+        return (
+          patent.date ===
+            `${monthNames[filter.fromMonth]} ${filter.fromYear}` ||
+          patent.date === `${monthNames[filter.toMonth]} ${filter.toYear}`
+        );
+      });
+      return filterList;
+    });
+  };
+
+  //React.useEffect(() => {}, [filter, setFilteredList]);
 
   return (
     <Card raised>
@@ -86,6 +131,7 @@ const PatentFilter = () => {
             },
           }}
           variant="contained"
+          onClick={handleFilterChange}
         >
           Apply
         </Button>

@@ -15,6 +15,7 @@ import { useSelector } from "react-redux";
 
 const PatentPage = () => {
   const patentList = useSelector((state) => state.patentReducer.PatentList);
+  const [filteredList, setFilteredList] = React.useState(patentList);
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -36,7 +37,10 @@ const PatentPage = () => {
     >
       <Grid container mt={20} direction="row" justifyContent="center">
         <Grid item xs={6} md={2} mr={4} mb={7}>
-          <PatentFilter />
+          <PatentFilter
+            filteredList={filteredList}
+            setFilteredList={setFilteredList}
+          />
         </Grid>
         <Grid item xs={12} md={7} sx={{ position: "relative" }}>
           <Typography
@@ -69,7 +73,7 @@ const PatentPage = () => {
           </Modal>
           <Box sx={{ height: "73vh", overflowY: "auto", pr: 2, pl: 2, pb: 2 }}>
             <Grid container spacing={2}>
-              {patentList.map((publication, i) => (
+              {filteredList.map((publication, i) => (
                 <Grid item sm={12} md={6} key={i}>
                   <PatentCard id={i} {...publication} />
                 </Grid>

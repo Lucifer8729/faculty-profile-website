@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 
 import {
   Button,
@@ -38,6 +39,7 @@ const Course = (props) => {
   const { id, idx, title, units, materials, img } = props;
   const courses = useSelector((state) => state.courseReducer.CourseList);
   const dispatch = useDispatch();
+  const history = useHistory();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
 
@@ -142,8 +144,8 @@ const Course = (props) => {
               bottom: 18,
               "&: hover": { bgcolor: "#ffffff" },
             }}
-            href={`/coursepage/${id}`}
-            // onClick={() => console.log("Clicked")}
+            // href={`/coursepage/${id}`}
+            onClick={() => history.push(`coursepage/${id}`)}
           >
             View
           </Button>

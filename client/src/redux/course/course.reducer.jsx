@@ -17,6 +17,10 @@ const courseReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         CourseList: [action.payload, ...state.CourseList],
+        Courses: {
+          ...state.Courses,
+          [`${action.payload.id}`]: {},
+        },
       };
 
     case types.DELETE_COURSE:

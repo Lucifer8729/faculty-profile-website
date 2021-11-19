@@ -3,6 +3,7 @@ import React from "react";
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import { Button, Typography } from "@mui/material";
+import Slider from "@mui/material/Slider";
 import DesktopDatePicker from "@mui/lab/DesktopDatePicker";
 import AddIcon from "@mui/icons-material/Add";
 
@@ -256,15 +257,15 @@ export const SkillForms = ({ close }) => {
         onChange={handleSkillChange}
         value={input.skill}
       />
-      <br />
-      <TextField
-        id="outlined-number"
-        label="Rate it on 0-100"
-        type="number"
-        sx={{ width: 600, mb: 3 }}
+      <Slider
+        defaultValue={30}
+        valueLabelDisplay="auto"
         onChange={handleRateChange}
-        value={input.rating}
+        step={5}
+        min={0}
+        max={100}
       />
+      <br />
       <br />
       <Button variant="contained" startIcon={<AddIcon />} onClick={handleSave}>
         add

@@ -5,6 +5,7 @@ import { Box, Button, Typography, TextField, MenuItem } from "@mui/material";
 import InputLabel from "@mui/material/InputLabel";
 import Select from "@mui/material/Select";
 import EditIcon from "@mui/icons-material/Edit";
+import AddIcon from "@mui/icons-material/Add";
 import FormControl from "@mui/material/FormControl";
 
 const style = {
@@ -135,8 +136,8 @@ export const UploadMaterialForm = ({ close }) => {
         <br />
       </FormControl>
       <br />
-      <Button variant="contained" startIcon={<EditIcon />} onClick={handleSave}>
-        save
+      <Button variant="contained" startIcon={<AddIcon />} onClick={handleSave}>
+        add
       </Button>
     </Box>
   );

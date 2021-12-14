@@ -2,6 +2,7 @@ import { Grid } from "@mui/material";
 import { Box } from "@mui/system";
 import { DataGrid } from "@mui/x-data-grid";
 import React, { useState } from "react";
+import Header from "../../components/Header/Header";
 import ProfileButton from "../../components/UI/Button";
 
 import * as utils from "../../components/UI/utils";
@@ -226,6 +227,8 @@ const ExperiencePage = () => {
   }, []);
 
   return (
+    <>
+    <Header />
     <Box
       sx={{
         bgcolor: "#EEEEEE",
@@ -333,6 +336,7 @@ const ExperiencePage = () => {
         />
       )}
     </Box>
+    </>
   );
 };
 

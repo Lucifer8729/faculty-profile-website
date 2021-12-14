@@ -13,6 +13,7 @@ import { PublicationForms } from "../../components/Forms/PublicationForms";
 import * as utils from "../../components/UI/utils";
 
 import { useSelector } from "react-redux";
+import Header from "../../components/Header/Header";
 
 const PublicationPage = () => {
   const publicationsList = useSelector(
@@ -28,6 +29,8 @@ const PublicationPage = () => {
   }, []);
 
   return (
+    <>
+    <Header />
     <Box
       sx={{
         bgcolor: "#EEEEEE",
@@ -78,6 +81,7 @@ const PublicationPage = () => {
         </Grid>
       </Grid>
     </Box>
+    </>
   );
 };
 

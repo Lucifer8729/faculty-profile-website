@@ -6,6 +6,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import ArrowRightAltSharpIcon from "@mui/icons-material/ArrowRightAltSharp";
 
 import "./styles.css";
+import Header from "../../components/Header/Header";
 
 const theme = createTheme({
   palette: {
@@ -25,6 +26,8 @@ const HomePage = () => {
   }, []);
 
   return (
+    <>
+    <Header />
     <ThemeProvider theme={theme}>
       <Box
         sx={{
@@ -75,6 +78,7 @@ const HomePage = () => {
         </Box>
       </Box>
     </ThemeProvider>
+    </>
   );
 };
 

@@ -1,6 +1,7 @@
 import { Grid, Link, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
+import Header from "../../components/Header/Header";
 import Map from "../../components/Map/Map";
 
 import * as utils from "../../components/UI/utils";
@@ -12,6 +13,8 @@ const ContactPage = () => {
   }, []);
 
   return (
+    <>
+    <Header />
     <Box
       sx={{
         bgcolor: "#EEEEEE",
@@ -126,6 +129,7 @@ const ContactPage = () => {
         </Grid>
       </Box>
     </Box>
+    </>
   );
 };
 

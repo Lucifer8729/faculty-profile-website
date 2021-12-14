@@ -15,6 +15,7 @@ import { EducationForms } from "../../components/Forms/ProfileForms";
 import { useSelector } from "react-redux";
 
 import * as utils from "../../components/UI/utils";
+import Header from "../../components/Header/Header";
 
 const ProfilePage = () => {
   const [profileActiveTab, setProfileActiveTab] = useState({
@@ -33,6 +34,8 @@ const ProfilePage = () => {
   }, []);
 
   return (
+    <>
+    <Header />
     <Box
       sx={{
         bgcolor: "#EEEEEE",
@@ -117,6 +120,7 @@ const ProfilePage = () => {
         </Grid>
       </Grid>
     </Box>
+    </>
   );
 };
 

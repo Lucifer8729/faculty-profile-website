@@ -9,6 +9,7 @@ import * as utils from "../../components/UI/utils";
 
 import { AddNewCourseForm } from "../../components/Forms/CourseForms";
 import { useSelector } from "react-redux";
+import Header from "../../components/Header/Header";
 
 const CoursePage = () => {
   const courses = useSelector((state) => state.courseReducer.CourseList);
@@ -22,6 +23,8 @@ const CoursePage = () => {
   }, []);
 
   return (
+    <>
+    <Header />
     <Box
       sx={{
         bgcolor: "#EEEEEE",
@@ -88,6 +91,7 @@ const CoursePage = () => {
         </Grid>
       </Box>
     </Box>
+    </>
   );
 };
 

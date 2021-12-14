@@ -12,6 +12,7 @@ import { PatentForms } from "../../components/Forms/PatentForms";
 import * as utils from "../../components/UI/utils";
 
 import { useSelector } from "react-redux";
+import Header from "../../components/Header/Header";
 
 const PatentPage = () => {
   const patentList = useSelector((state) => state.patentReducer.PatentList);
@@ -26,6 +27,8 @@ const PatentPage = () => {
   }, []);
 
   return (
+    <>
+    <Header />
     <Box
       sx={{
         bgcolor: "#EEEEEE",
@@ -84,6 +87,7 @@ const PatentPage = () => {
         </Grid>
       </Grid>
     </Box>
+    </>
   );
 };
 

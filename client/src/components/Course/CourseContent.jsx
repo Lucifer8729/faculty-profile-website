@@ -30,6 +30,7 @@ import {
   EditOverviewForm,
   UploadMaterialForm,
 } from "../Forms/CourseContentForms";
+import Header from "../Header/Header";
 
 const CourseContent = () => {
   const history = useHistory();
@@ -79,6 +80,8 @@ const CourseContent = () => {
   }, []);
 
   return (
+    <>
+    <Header />
     <Box
       sx={{
         bgcolor: "#EEEEEE",
@@ -336,6 +339,7 @@ const CourseContent = () => {
           ))}
       </Grid>
     </Box>
+    </>
   );
 };
 

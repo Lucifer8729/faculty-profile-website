@@ -1,9 +1,14 @@
 import types from "./profile.types";
 import * as utils from "./profile.utils";
 
-export const editAboutMe = (...args) => ({
+export const fetchProfile = async () => ({
+  type: types.FETCH_PROFILE,
+  payload: await utils.fetchProfile(),
+});
+
+export const editAboutMe = async (...args) => ({
   type: types.EDIT_ABOUT_ME,
-  payload: utils.editAboutMe(...args),
+  payload: await utils.editAboutMe(...args),
 });
 
 export const addNewDegree = (...args) => ({

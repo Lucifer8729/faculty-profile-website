@@ -56,7 +56,7 @@ const Skill = () => {
         >
           {skillList.map((skill, i) => (
             <Grid item key={i} xs={6} sx={{ pr: 2 }}>
-              <SkillBar id={i} skill={skill[0]} percent={skill[1]} />
+              <SkillBar id={i} skill={skill.name} percent={skill.score} />
             </Grid>
           ))}
         </Grid>

@@ -1,8 +1,17 @@
-export const editAboutMe = (input) => {
+import * as api from "../../api/index";
+
+export const fetchProfile = async () => {
+  const { data } = await api.fetchProfile();
+  console.log(data);
+  return data[0];
+};
+
+export const editAboutMe = async (input) => {
+  const { data } = await api.updateProfileAbout(input);
   return {
-    header: input.header,
-    quote: input.quote,
-    detail: input.detail,
+    header: data.header,
+    quote: data.quote,
+    detail: data.detail,
   };
 };
 

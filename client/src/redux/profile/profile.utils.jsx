@@ -12,42 +12,59 @@ export const editAboutMe = async (input) => {
     header: data.header,
     quote: data.quote,
     detail: data.detail,
+    _id: data._id,
   };
 };
 
-export const addNewDegree = (input, from, to) => {
+export const addNewDegree = async (input, from, to) => {
   const startDate = new Date(from);
   const endDate = new Date(to);
   const yearRange = `${startDate.getFullYear()} - ${endDate.getFullYear()}`;
-
-  return {
+  const form = {
     degree: input.degree,
     year: yearRange,
     institute: input.institute,
   };
-};
 
-export const deleteDegree = (index, array) => {
-  array.splice(index, 1);
+  const { data } = await api.addEducation(form);
 
   return {
-    newList: array,
+    newList: data,
   };
 };
 
-export const addNewSkill = ({ skill, rating }) => {
+export const deleteDegree = async (index, array) => {
+  array.splice(index, 1);
+  const { data } = await api.deleteEducation(array);
+
+  return {
+    newList: data,
+  };
+};
+
+export const addNewSkill = async ({ skill, rating }) => {
   let r = 0;
   if (rating > 100) r = 100;
   else if (rating > 0) r = rating;
+
+  const form = {
+    name: skill,
+    score: r,
+  };
+
+  const { data } = await api.addNewSkill(form);
+
   return {
-    newSkill: [skill, r],
+    newList: data,
   };
 };
 
-export const deleteSkill = (index, array) => {
+export const deleteSkill = async (index, array) => {
   array.splice(index, 1);
 
+  const { data } = await api.deleteSkill(array);
+
   return {
-    newList: array,
+    newList: data,
   };
 };

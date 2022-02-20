@@ -50,7 +50,7 @@ const profileReducer = (state = INITIAL_STATE, action) => {
     case types.ADD_NEW_DEGREE:
       return {
         ...state,
-        Education: [action.payload, ...state.Education],
+        Education: [...action.payload.newList],
       };
 
     case types.DELETE_DEGREE:
@@ -62,7 +62,7 @@ const profileReducer = (state = INITIAL_STATE, action) => {
     case types.ADD_NEW_SKILL:
       return {
         ...state,
-        SkillList: [action.payload.newSkill, ...state.SkillList],
+        SkillList: [...action.payload.newList],
       };
 
     case types.DELETE_SKILL:

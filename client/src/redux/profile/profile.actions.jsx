@@ -11,22 +11,22 @@ export const editAboutMe = async (...args) => ({
   payload: await utils.editAboutMe(...args),
 });
 
-export const addNewDegree = (...args) => ({
+export const addNewDegree = async (...args) => ({
   type: types.ADD_NEW_DEGREE,
-  payload: utils.addNewDegree(...args),
+  payload: await utils.addNewDegree(...args),
 });
 
-export const deleteDegree = (...args) => ({
+export const deleteDegree = async (...args) => ({
   type: types.DELETE_DEGREE,
-  payload: utils.deleteDegree(...args),
+  payload: await utils.deleteDegree(...args),
 });
 
-export const addNewSkill = (...args) => ({
+export const addNewSkill = async (...args) => ({
   type: types.ADD_NEW_SKILL,
-  payload: utils.addNewSkill(...args),
+  payload: await utils.addNewSkill(...args),
 });
 
-export const deleteSkill = (...args) => ({
+export const deleteSkill = async (...args) => ({
   type: types.DELETE_SKILL,
-  payload: utils.deleteSkill(...args),
+  payload: await utils.deleteSkill(...args),
 });

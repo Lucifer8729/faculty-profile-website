@@ -4,6 +4,8 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 
 import profileRoutes from "./routes/profile.js";
+import publicationRoutes from "./routes/publication.js";
+import patentRoutes from "./routes/patent.js";
 
 const app = express();
 dotenv.config();
@@ -13,6 +15,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 app.use("/profile", profileRoutes);
+app.use("/publication", publicationRoutes);
+app.use("/patent", patentRoutes);
 
 app.get("/", (req, res) => {
   res.send("Hello to Faculty Profile Website Backend API");

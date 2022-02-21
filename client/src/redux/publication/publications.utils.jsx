@@ -1,4 +1,12 @@
-export const addNewPublication = (input, date) => {
+import * as api from "../../api/index";
+
+export const fetchPublications = async () => {
+  const { data } = await api.fetchPublication();
+  console.log(data);
+  return data;
+};
+
+export const addNewPublication = async (input, date) => {
   const monthNames = [
     "January",
     "February",
@@ -18,21 +26,35 @@ export const addNewPublication = (input, date) => {
 
   const authors = input.authors.split(", ");
 
-  return {
+  const form = {
     title: input.title,
     date: timeInWords,
     location: input.location,
-    detail: input.detail,
+    description: input.description,
     authors: authors,
     viewLink: input.viewLink,
     downloadLink: input.downloadLink,
   };
-};
 
-export const deletePublication = (index, array) => {
-  array.splice(index, 1);
+  const { data } = await api.addNewPublication(form);
 
   return {
-    newList: array,
+    title: data.title,
+    date: data.date,
+    location: data.location,
+    description: data.description,
+    authors: data.authors,
+    viewLink: data.viewLink,
+    downloadLink: data.downloadLink,
+  };
+};
+
+export const deletePublication = async (index, array) => {
+  array.splice(index, 1);
+
+  const { data } = await api.deletePublication(array);
+
+  return {
+    newList: data,
   };
 };

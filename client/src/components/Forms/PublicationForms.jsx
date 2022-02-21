@@ -28,7 +28,7 @@ export const PublicationForms = ({ close }) => {
   const [input, setInput] = React.useState({
     title: "",
     location: "",
-    detail: "",
+    description: "",
     authors: "",
     viewLink: "",
     downloadLink: "",
@@ -57,7 +57,7 @@ export const PublicationForms = ({ close }) => {
     setInput((prevValue) => {
       return {
         ...prevValue,
-        detail: value,
+        description: value,
       };
     });
   };
@@ -141,7 +141,7 @@ export const PublicationForms = ({ close }) => {
       <br />
       <TextField
         id="outlined-multiline-static"
-        label="Detail"
+        label="Description"
         multiline
         rows={3}
         sx={{ width: 600, mb: 2 }}

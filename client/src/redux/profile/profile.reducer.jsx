@@ -39,7 +39,7 @@ const INITIAL_STATE = {
 const profileReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case types.FETCH_PROFILE:
-      return action.payload;
+      return { ...state, ...action.payload };
 
     case types.EDIT_ABOUT_ME:
       return {

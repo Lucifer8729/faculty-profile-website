@@ -40,6 +40,12 @@ const INITIAL_STATE = {
 
 const publicationReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
+    case types.FETCH_PUBLICATIONS:
+      return {
+        ...state,
+        ...action.payload,
+      };
+
     case types.ADD_NEW_PUBLICATION:
       return {
         ...state,

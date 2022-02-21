@@ -57,6 +57,11 @@ const INITIAL_STATE = {
 
 const patentReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
+    case types.FETCH_PATENTS:
+      return {
+        ...state,
+        ...action.payload,
+      };
     case types.ADD_NEW_PATENT:
       return {
         ...state,

@@ -1,4 +1,12 @@
-export const addNewPatent = (input, date) => {
+import * as api from "../../api/index";
+
+export const fetchPatents = async () => {
+  const { data } = await api.fetchPatent();
+  console.log(data);
+  return data;
+};
+
+export const addNewPatent = async (input, date) => {
   const monthNames = [
     "January",
     "February",
@@ -16,7 +24,7 @@ export const addNewPatent = (input, date) => {
   const time = new Date(date);
   const timeInWords = `${monthNames[time.getMonth()]} ${time.getFullYear()}`;
 
-  return {
+  const form = {
     title: input.title,
     date: timeInWords,
     month: time.getMonth(),
@@ -25,12 +33,26 @@ export const addNewPatent = (input, date) => {
     viewLink: input.viewLink,
     downloadLink: input.downloadLink,
   };
-};
 
-export const deletePatent = (index, array) => {
-  array.splice(index, 1);
+  const { data } = await api.addNewPatent(form);
 
   return {
-    newList: array,
+    title: data.title,
+    date: data.date,
+    month: data.month,
+    year: data.year,
+    location: data.location,
+    viewLink: data.viewLink,
+    downloadLink: data.downloadLink,
+  };
+};
+
+export const deletePatent = async (index, array) => {
+  array.splice(index, 1);
+
+  const { data } = await api.deletePatent(array);
+
+  return {
+    newList: data,
   };
 };

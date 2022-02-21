@@ -5,7 +5,7 @@ export const getProfile = async (req, res) => {
     const profileData = await Profile.find({});
     console.log(profileData);
     res.status(200).json(profileData);
-  } catch (err) {
+  } catch (error) {
     res.status(404).json({ message: error.message });
   }
 };
@@ -17,7 +17,7 @@ export const updateProfileAbout = async (req, res) => {
     profileData.AboutMe = aboutData;
     await profileData.save();
     res.status(200).json(profileData.AboutMe);
-  } catch (err) {
+  } catch (error) {
     res.status(404).json({ message: error.message });
   }
 };
@@ -29,7 +29,7 @@ export const addEducation = async (req, res) => {
     profileData.Education.unshift(educationData);
     await profileData.save();
     res.status(200).json(profileData.Education);
-  } catch (err) {
+  } catch (error) {
     res.status(404).json({ message: error.message });
   }
 };
@@ -42,7 +42,7 @@ export const deleteEducation = async (req, res) => {
     profileData.Education = educationData;
     await profileData.save();
     res.status(200).json(profileData.Education);
-  } catch (err) {
+  } catch (error) {
     res.status(404).json({ message: error.message });
   }
 };
@@ -54,7 +54,7 @@ export const addNewSkill = async (req, res) => {
     profileData.SkillList.push(skillData);
     await profileData.save();
     res.status(200).json(profileData.SkillList);
-  } catch (err) {
+  } catch (error) {
     res.status(404).json({ message: error.message });
   }
 };
@@ -66,7 +66,7 @@ export const deleteSkill = async (req, res) => {
     profileData.SkillList = skillData;
     await profileData.save();
     res.status(200).json(profileData.SkillList);
-  } catch (err) {
+  } catch (error) {
     res.status(404).json({ message: error.message });
   }
 };

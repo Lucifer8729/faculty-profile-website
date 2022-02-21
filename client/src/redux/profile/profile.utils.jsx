@@ -44,6 +44,7 @@ export const deleteDegree = async (index, array) => {
 
 export const addNewSkill = async ({ skill, rating }) => {
   let r = 0;
+
   if (rating > 100) r = 100;
   else if (rating > 0) r = rating;
 

@@ -11,6 +11,8 @@ import {
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import DesktopDatePicker from "@mui/lab/DesktopDatePicker";
+import { useDispatch } from "react-redux";
+import { filterPatent } from "../../redux/patent/patent.actions";
 
 const CssTextField = styled(TextField)({
   //   ".MuiInputLabel-root": {
@@ -50,61 +52,66 @@ const CssTextField = styled(TextField)({
 //   "December",
 // ];
 
-const PatentFilter = ({ filteredList, setFilteredList, patentList }) => {
+const PatentFilter = () => {
   const [from, setFrom] = React.useState(new Date());
   const [to, setTo] = React.useState(from);
-  const [filter, setFilter] = React.useState({
-    fromMonth: from.getMonth(),
-    fromYear: from.getFullYear(),
-    toMonth: to.getMonth(),
-    toYear: to.getFullYear(),
-  });
+  const dispatch = useDispatch();
+  // const [filter, setFilter] = React.useState({
+  //   fromMonth: from.getMonth(),
+  //   fromYear: from.getFullYear(),
+  //   toMonth: to.getMonth(),
+  //   toYear: to.getFullYear(),
+  // });
 
-  const patentFilter = () => {
-    let filterList = [];
-    if (filter.toMonth < filter.fromMonth) {
-      for (let i = 0; i < patentList.length; i++) {
-        if (
-          patentList[i].month >= filter.toMonth &&
-          patentList[i].month <= filter.fromMonth &&
-          patentList[i].year >= filter.fromYear &&
-          patentList[i].year <= filter.toYear
-        ) {
-          filterList.push(patentList[i]);
-        }
-      }
-    } else {
-      for (let i = 0; i < patentList.length; i++) {
-        if (
-          patentList[i].month <= filter.toMonth &&
-          patentList[i].month >= filter.fromMonth &&
-          patentList[i].year >= filter.fromYear &&
-          patentList[i].year <= filter.toYear
-        ) {
-          filterList.push(patentList[i]);
-        }
-      }
-    }
-    return filterList;
-  };
+  // const patentFilter = () => {
+  //   let filterList = [];
+  //   if (filter.toMonth < filter.fromMonth) {
+  //     for (let i = 0; i < patentList.length; i++) {
+  //       if (
+  //         patentList[i].month >= filter.toMonth &&
+  //         patentList[i].month <= filter.fromMonth &&
+  //         patentList[i].year >= filter.fromYear &&
+  //         patentList[i].year <= filter.toYear
+  //       ) {
+  //         filterList.push(patentList[i]);
+  //       }
+  //     }
+  //   } else {
+  //     for (let i = 0; i < patentList.length; i++) {
+  //       if (
+  //         patentList[i].month <= filter.toMonth &&
+  //         patentList[i].month >= filter.fromMonth &&
+  //         patentList[i].year >= filter.fromYear &&
+  //         patentList[i].year <= filter.toYear
+  //       ) {
+  //         filterList.push(patentList[i]);
+  //       }
+  //     }
+  //   }
+  //   return filterList;
+  // };
 
-  const handleFilterChange = () => {
-    setFilter(() => {
-      return {
-        fromMonth: from.getMonth(),
-        fromYear: from.getFullYear(),
-        toMonth: to.getMonth(),
-        toYear: to.getFullYear(),
-      };
-    });
-    setFilteredList(() => {
-      filteredList = patentFilter();
-      console.log(filteredList, filter);
-      return filteredList;
-    });
-  };
+  // const handleFilterChange = () => {
+  //   setFilter(() => {
+  //     return {
+  //       fromMonth: from.getMonth(),
+  //       fromYear: from.getFullYear(),
+  //       toMonth: to.getMonth(),
+  //       toYear: to.getFullYear(),
+  //     };
+  //   });
+  //   setFilteredList(() => {
+  //     filteredList = patentFilter();
+  //     console.log(filteredList, filter);
+  //     return filteredList;
+  //   });
+  // };
 
   //React.useEffect(() => {}, [filter, setFilteredList]);
+
+  const handleFilterClick = () => {
+    dispatch(filterPatent(from, to));
+  };
 
   return (
     <Card raised>
@@ -153,7 +160,7 @@ const PatentFilter = ({ filteredList, setFilteredList, patentList }) => {
             },
           }}
           variant="contained"
-          onClick={handleFilterChange}
+          onClick={handleFilterClick}
         >
           Apply
         </Button>

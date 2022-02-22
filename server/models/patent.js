@@ -5,7 +5,7 @@ const patentSchema = mongoose.Schema({
     type: [
       {
         title: String,
-        date: String,
+        date: Date,
         month: Number,
         year: Number,
         location: String,

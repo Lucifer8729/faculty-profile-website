@@ -7,26 +7,26 @@ export const fetchPatents = async () => {
 };
 
 export const addNewPatent = async (input, date) => {
-  const monthNames = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
+  // const monthNames = [
+  //   "January",
+  //   "February",
+  //   "March",
+  //   "April",
+  //   "May",
+  //   "June",
+  //   "July",
+  //   "August",
+  //   "September",
+  //   "October",
+  //   "November",
+  //   "December",
+  // ];
   const time = new Date(date);
-  const timeInWords = `${monthNames[time.getMonth()]} ${time.getFullYear()}`;
+  // const timeInWords = `${monthNames[time.getMonth()]} ${time.getFullYear()}`;
 
   const form = {
     title: input.title,
-    date: timeInWords,
+    date: time,
     month: time.getMonth(),
     year: time.getFullYear(),
     location: input.location,
@@ -51,6 +51,19 @@ export const deletePatent = async (index, array) => {
   array.splice(index, 1);
 
   const { data } = await api.deletePatent(array);
+
+  return {
+    newList: data,
+  };
+};
+
+export const filterPatent = async (from, to) => {
+  const filterData = {
+    from: `${from.getFullYear()}-${from.getMonth()}-${from.getDate()}`,
+    to: `${to.getFullYear()}-${to.getMonth()}-${to.getDate()}`,
+  };
+  console.log(filterData);
+  const { data } = await api.filterPatent(filterData);
 
   return {
     newList: data,

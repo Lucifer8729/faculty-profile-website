@@ -34,3 +34,41 @@ export const deletePatent = async (req, res) => {
     res.status(404).json({ message: error.message });
   }
 };
+
+export const filterPatent = async (req, res) => {
+  const { from, to } = req.body;
+  try {
+    if (from === "" || to === "") {
+      return res.status(400).json({
+        status: "failure",
+        message: "Please ensure you pick two dates",
+      });
+    }
+    console.log(req.body);
+    const filteredData = await Patent.find({
+      "PatentList[date]": {
+        $gte: new Date(
+          new Date(from).setHours(
+            parseInt("00", 8),
+            parseInt("00", 8),
+            parseInt("00", 8)
+          )
+        ),
+        $lt: new Date(
+          new Date(to).setHours(
+            parseInt("00", 8),
+            parseInt("00", 8),
+            parseInt("00", 8)
+          )
+        ),
+      },
+    });
+
+    if (!filteredData[0])
+      return res.status(400).json({ message: "No Documents found." });
+    //console.log(filteredData[0].PatentList);
+    res.status(200).json(filteredData[0].PatentList);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+};

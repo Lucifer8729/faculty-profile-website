@@ -20,13 +20,28 @@ import { useSelector, useDispatch } from "react-redux";
 import { deletePatent } from "../../redux/patent/patent.actions";
 
 const PatentCard = (props) => {
-  const { title, date, location, viewLink, id } = props;
+  const { title, month, year, location, viewLink, id } = props;
   const patentList = useSelector((state) => state.patentReducer.PatentList);
   const dispatch = useDispatch();
 
   const handleDelete = () => {
     dispatch(deletePatent(id, patentList));
   };
+
+  const monthNames = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
 
   return (
     <Card raised sx={{ p: 2 }}>
@@ -44,7 +59,7 @@ const PatentCard = (props) => {
           }}
         >
           <DateRangeIcon sx={{ mr: 1, fontSize: "1.2rem" }} />
-          {date}
+          {`${monthNames[month]} ${year}`}
         </Typography>
         <br />
         <Typography

@@ -22,3 +22,4 @@ export const deletePublication = (form) =>
 export const fetchPatent = () => API.get("/patent");
 export const addNewPatent = (form) => API.post("/patent/add", form);
 export const deletePatent = (form) => API.post("/patent/delete", form);
+export const filterPatent = (form) => API.post("/patent/filter", form);

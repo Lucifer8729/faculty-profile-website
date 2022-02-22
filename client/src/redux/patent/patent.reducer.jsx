@@ -62,6 +62,13 @@ const patentReducer = (state = INITIAL_STATE, action) => {
         ...state,
         ...action.payload,
       };
+
+    case types.FILTER_PATENT:
+      return {
+        ...state,
+        PatentList: [...action.payload.newList],
+      };
+
     case types.ADD_NEW_PATENT:
       return {
         ...state,

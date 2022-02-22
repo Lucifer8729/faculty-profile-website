@@ -15,3 +15,8 @@ export const deletePatent = async (...args) => ({
   type: types.DELETE_PATENT,
   payload: await utils.deletePatent(...args),
 });
+
+export const filterPatent = async (...args) => ({
+  type: types.FILTER_PATENT,
+  payload: await utils.filterPatent(...args),
+});
